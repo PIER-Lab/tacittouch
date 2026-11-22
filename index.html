@@ -1,9 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TacitTouch</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="TacitTouch transfers tactile-guided behavior into a vision-only policy for contact-rich manipulation.">
+<meta property="og:title" content="TacitTouch">
+<meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
+<meta property="og:image" content="https://pier-lab.github.io/tacittouch/real-ball-blue.webp">
+<title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
+<link rel="stylesheet" href="style.css">
+<script src="page.js" defer></script>
 </head>
-<body></body>
+<body id="top">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <nav class="wrap navigation" aria-label="Project sections">
+    <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>TacitTouch</a>
+    <div class="navlinks"><a href="#rollouts">Real world</a><a href="#method">Method</a><a href="#simulation">Simulation</a><a href="#citation">Cite</a></div>
+  </nav>
+</header>
+<main id="content">
+  <section class="wrap hero" aria-labelledby="title">
+    <div class="hero-text">
+      <h1 id="title">Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation</h1>
+      <p class="lede">Tactile supervision trains a vision-only policy to carry out contact-rich manipulation.</p>
+      <p class="authors">Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
+      <p class="affiliations"><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
+      <p class="credits">* Equal contribution. † Corresponding author.</p>
+      <a class="action" href="#rollouts">Watch the rollouts <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="hero-media"><div class="screen"><video controls playsinline preload="none" poster="real-ball-blue.webp" aria-label="TacitTouch ball sorting on the Franka robot" ><source src="real-ball-blue.mp4" type="video/mp4"></video></div><figcaption><span>Ball Sorting on Franka</span><span>Overhead view · 1× speed</span></figcaption></figure>
+  </section>
+  <section class="wrap metrics" aria-label="Mean success-rate gains over vision-only control">
+    <p>Mean success-rate gain<br><span>over vision-only control</span></p>
+    <div><strong>+22.5</strong><span class="unit">pp</span><span class="metric-label">Four real-world tasks</span></div>
+    <div><strong>+16.0</strong><span class="unit">pp</span><span class="metric-label">Four UniVTAC tasks</span></div>
+  </section>
+  <section class="wrap section" id="rollouts" aria-labelledby="rollouts-heading">
+    <div class="section-head"><h2 id="rollouts-heading">Real-world rollouts</h2><p>TacitTouch policies run on Franka across four contact-rich tasks.</p></div>
+    <div class="rollout-grid">
+      <article class="rollout">
+        <h3>Ball Sorting</h3>
+        <div class="views" aria-label="Ball sorting views">
+          <button type="button" data-choose="blue" aria-pressed="true" aria-controls="ball-blue">Blue bowl</button>
+          <button type="button" data-choose="wrist" aria-pressed="false" aria-controls="ball-wrist">Wrist view</button>
+          <button type="button" data-choose="pink" aria-pressed="false" aria-controls="ball-pink">Pink bowl <span>· Pending</span></button>
+        </div>
+        <div id="ball-blue" data-view="blue"><div class="screen"><video controls playsinline preload="none" poster="real-ball-blue.webp" aria-label="Blue-bowl sorting rollout, overhead view" ><source src="real-ball-blue.mp4" type="video/mp4"></video></div></div>
+        <div id="ball-wrist" data-view="wrist" hidden><div class="screen"><video controls playsinline preload="none" poster="real-ball-wrist.webp" aria-label="Wrist view of the blue-bowl rollout" ><source src="real-ball-wrist.mp4" type="video/mp4"></video></div></div>
+        <div id="ball-pink" data-view="pink" hidden><div class="screen pending" data-video-slot="real-ball-pink"><img src="real-ball-pink.webp" alt="Pink-bowl sorting demonstration frame" loading="lazy"><div class="pending-note"><span>Rollout video pending</span><small>Demonstration frame</small></div></div></div>
+        <p>Sort visually similar balls by surface texture.</p>
+      </article>
+      <article class="rollout"><h3>Insert USB</h3><div class="screen pending" data-video-slot="real-usb"><img src="real-usb.webp" alt="Insert USB demonstration frame" loading="lazy"><div class="pending-note"><span>Rollout video pending</span><small>Demonstration frame</small></div></div><p>Grasp, align and insert the plug into the port.</p></article>
+      <article class="rollout"><h3>Wipe Board</h3><div class="screen pending" data-video-slot="real-wipe"><img src="real-wipe.webp" alt="Wipe Board demonstration frame" loading="lazy"><div class="pending-note"><span>Rollout video pending</span><small>Demonstration frame</small></div></div><p>Pick up the eraser and clear the marked area.</p></article>
+      <article class="rollout"><h3>Chip Moving</h3><div class="screen pending" data-video-slot="real-chip"><img src="real-chip.webp" alt="Chip Moving demonstration frame" loading="lazy"><div class="pending-note"><span>Rollout video pending</span><small>Demonstration frame</small></div></div><p>Move the chip between bottle mouths and release it intact.</p></article>
+    </div>
+    <details class="more">
+      <summary>See synchronized tactile observations from demonstrations</summary>
+      <p>These wrist images and measured GelSight readings were recorded during demonstrations.</p>
+      <figure class="paper-figure"><a href="demonstrations.webp" data-figure><img src="demonstrations.webp" alt="Wrist images and left and right tactile readings from demonstrations of the four real-world tasks" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>Wrist and fingertip observations across tasks</figcaption></figure>
+      <figure class="paper-figure"><a href="tactile-contact.webp" data-figure><img src="tactile-contact.webp" alt="Wrist views and two fingertip tactile readings before contact, during grasp and after release" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>Recorded contact for smooth and rough balls</figcaption></figure>
+    </details>
+  </section>
+  <section class="paper-band" id="method" aria-labelledby="method-heading">
+    <div class="wrap section">
+      <div class="section-head"><h2 id="method-heading">Method and setup</h2><p>A visuotactile teacher supervises action predictions and representations during training. At deployment, the student uses RGB, instructions and proprioception.</p></div>
+      <div class="method-grid">
+        <figure class="paper-figure"><a href="method.webp" data-figure><img src="method.webp" alt="A frozen visuotactile teacher supervises a visual student through action and feature distillation" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>TacitTouch training and deployment</figcaption></figure>
+        <figure class="paper-figure"><a href="hardware.webp" data-figure><img src="hardware.webp" alt="Franka FR3, instrumented gripper, and the teleoperation devices used for demonstrations" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>Franka platform and sensing hardware</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section class="wrap section" id="simulation" aria-labelledby="sim-heading">
+    <div class="section-head"><h2 id="sim-heading">Results and simulation</h2><p>Success rates on simulated and real-world manipulation tasks.</p></div>
+    <figure class="paper-figure"><a href="results.webp" data-figure><img src="results.webp" alt="TacitTouch design and comparative task success rates" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>Success rates and tactile supervision across training and deployment.</figcaption></figure>
+    <h3 class="sim-heading">UniVTAC rollouts</h3>
+    <div class="sim-grid"><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-lift-bottle.webp" aria-label="Lift Bottle simulation rollout" ><source src="sim-lift-bottle.mp4" type="video/mp4"></video></div><figcaption>Lift Bottle</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-lift-can.webp" aria-label="Lift Can simulation rollout" ><source src="sim-lift-can.mp4" type="video/mp4"></video></div><figcaption>Lift Can</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-put-bottle.webp" aria-label="Put Bottle simulation rollout" ><source src="sim-put-bottle.mp4" type="video/mp4"></video></div><figcaption>Put Bottle</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-insert-tube.webp" aria-label="Insert Tube simulation rollout" ><source src="sim-insert-tube.mp4" type="video/mp4"></video></div><figcaption>Insert Tube</figcaption></figure></div>
+    <details class="more">
+      <summary>Four additional simulation tasks</summary>
+      <div class="sim-grid"><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-pull-out-key.webp" aria-label="Pull-out Key simulation rollout" ><source src="sim-pull-out-key.mp4" type="video/mp4"></video></div><figcaption>Pull-out Key</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-insert-hole.webp" aria-label="Insert Hole simulation rollout" ><source src="sim-insert-hole.mp4" type="video/mp4"></video></div><figcaption>Insert Hole</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-grasp-classify.webp" aria-label="Grasp Classify simulation rollout" ><source src="sim-grasp-classify.mp4" type="video/mp4"></video></div><figcaption>Grasp Classify</figcaption></figure><figure class="sim-card"><div class="screen"><video controls playsinline preload="none" poster="sim-insert-hdmi.webp" aria-label="Insert HDMI simulation rollout" ><source src="sim-insert-hdmi.mp4" type="video/mp4"></video></div><figcaption>Insert HDMI</figcaption></figure></div>
+    </details>
+    <div class="robustness">
+      <div class="section-head"><h2>Visual robustness</h2><p>Selected matched TacImag and TacitTouch rollouts under altered lighting and camera viewpoints.</p></div>
+      <figure class="paper-figure"><a href="robustness.webp" data-figure><img src="robustness.webp" alt="Contact-rich trajectories under dimmed camera input and camera viewpoint shifts, comparing TacImag and TacitTouch" loading="lazy"><span class="expand" aria-label="Enlarge image">↗</span></a><figcaption>Matched examples under dimmed inputs and shifted cameras</figcaption></figure>
+    </div>
+  </section>
+  <section class="paper-band" id="citation" aria-labelledby="citation-heading">
+    <div class="wrap section cite">
+      <div><h2 id="citation-heading">Citation</h2><button type="button" id="copy-citation">Copy BibTeX</button><span id="copy-status" role="status"></span></div>
+      <pre id="bibtex"><code>@misc{yang2026tacittouch,
+  title  = {Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation},
+  author = {Yang, Chen and Wang, Linhao and Shi, Linzhe and Zhang, Guohui and
+            Wu, Changjie and Zhang, Hang and Li, Haoyu and Xu, Mu and
+            Fan, Jiansheng and Wang, Chen},
+  year   = {2026},
+  url    = {https://pier-lab.github.io/tacittouch/}
+}</code></pre>
+    </div>
+  </section>
+</main>
+<footer class="wrap footer"><a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>TacitTouch</a><a href="#top">Back to top ↑</a></footer>
+<dialog id="figure-dialog" aria-label="Enlarged paper figure">
+  <button type="button" aria-label="Close enlarged figure">Close ×</button>
+  <img alt="">
+</dialog>
+</body>
 </html>
