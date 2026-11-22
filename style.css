@@ -117,15 +117,22 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .subhead p { color: var(--subtle); margin-top: 7px; }
 .rollout-switcher { margin-bottom: clamp(18px, 2.6vw, 36px); }
 .clip-grid { display: grid; gap: clamp(12px, 1.7vw, 24px); }
-.triple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .video-frame { border-radius: var(--radius); overflow: hidden; background: #112b30; aspect-ratio: 16 / 9; }
 .video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.rollout-tactile {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: clamp(14px, 2vw, 24px);
+.rollout-views {
+  --view-gap: clamp(10px, 1.2vw, 18px);
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: start;
+  gap: var(--view-gap);
 }
-.rollout-tactile .video-frame { aspect-ratio: 4 / 3; }
+.rollout-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--view-gap); }
+.rollout-pair + .rollout-pair { margin-top: var(--view-gap); }
+.rollout-pair .video-frame { aspect-ratio: 4 / 3; }
+.rollout-views .clip figcaption { margin-top: 6px; }
+.rollout-views .clip figcaption strong { font-size: .9rem; }
+.rollout-note { margin-top: 9px; color: var(--subtle); font-size: .8rem; line-height: 1.45; }
 .clip figcaption {
   display: flex; align-items: baseline; justify-content: space-between; gap: 6px 12px;
   flex-wrap: wrap; margin-top: 10px; line-height: 1.35;
@@ -221,6 +228,9 @@ dialog img { max-height: 72svh; object-fit: contain; }
 @media (max-width: 1010px) {
   .four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+@media (max-width: 760px) {
+  .rollout-views { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 680px) {
   section[id] { scroll-margin-top: 104px; }
   .navigation { min-height: auto; grid-template-columns: 1fr auto; gap: 0 16px; padding-block: 9px 0; }
@@ -241,9 +251,8 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .metrics > p { grid-column: 1 / -1; }
   .metrics > div:nth-child(2) { padding-left: 0; border-left: 0; }
   .metrics span { font-size: .88rem; }
-  .triple, .method-grid, .paper-grid, .citation, .contact-stage { grid-template-columns: 1fr; }
+  .method-grid, .paper-grid, .citation, .contact-stage { grid-template-columns: 1fr; }
   .clip-grid { row-gap: 19px; }
-  .rollout-tactile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bars b, .bars dt { font-size: .83rem; }
   .bars dd { gap: 7px; grid-template-columns: minmax(0, 1fr) 3.65rem; }
   .contact-stage figcaption span { font-size: .92rem; }
