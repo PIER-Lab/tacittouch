@@ -8,8 +8,8 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp?v=real-world">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=gallery-cleanup">
-  <script src="page.js?v=gallery-cleanup" defer></script>
+  <link rel="stylesheet" href="style.css?v=rollout-player">
+  <script src="page.js?v=rollout-player" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#content">Skip to content</a>
@@ -47,8 +47,9 @@
           <p>TacImag predicts tactile observations during inference and passes them to its policy. TacitTouch transfers the teacher’s guidance during training. The deployed student then acts from camera images, robot state and the task instruction.</p>
         </div>
         <div class="authors">
-          <p>Chen Yang<sup title="Equal contribution">1,*</sup>, Linhao Wang<sup title="Equal contribution">1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup title="Corresponding author">1,†</sup></p>
+          <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
           <p><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
+          <p class="author-notes">* Equal contribution. † Corresponding author.</p>
         </div>
       </div>
       <figure class="paper-figure" id="figure-1">
@@ -79,231 +80,273 @@
 
       <section id="rollout-ball" aria-labelledby="rollout-ball-title">
         <h3 class="subhead" id="rollout-ball-title">Blue-bowl rollout</h3>
-        <div class="rollout-views">
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Blue-bowl rollout — Side view">
-              <source src="rollouts/ball-blue-bowl/side.mp4" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Side view</strong></figcaption>
-          </figure>
-          <div class="rollout-details">
-            <div class="rollout-pair">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Blue-bowl rollout — Overhead view">
-                  <source src="rollouts/ball-blue-bowl/overhead.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Overhead view</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Blue-bowl rollout — Wrist view">
-                  <source src="rollouts/ball-blue-bowl/wrist.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Wrist view</strong></figcaption>
-              </figure>
-            </div>
-            <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-blue-bowl-tactile-note">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Blue-bowl rollout — Left GelSight">
-                  <source src="rollouts/ball-blue-bowl/tactile-left.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Left GelSight</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Blue-bowl rollout — Right GelSight">
-                  <source src="rollouts/ball-blue-bowl/tactile-right.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Right GelSight</strong></figcaption>
-              </figure>
-            </div>
-            <p class="rollout-note" id="ball-blue-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+        <div class="rollout-player">
+          <div class="rollout-controls" hidden>
+            <button class="rollout-play" type="button">Play all views</button>
+            <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+            <span class="rollout-time" aria-hidden="true">0:00</span>
           </div>
-        </div>
-        <section class="secondary-rollout" aria-labelledby="rollout-pink-title">
-          <h3 class="subhead" id="rollout-pink-title">Pink-bowl rollout</h3>
+          <p class="rollout-error" role="status" hidden></p>
           <div class="rollout-views">
             <figure class="clip">
-              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Pink-bowl rollout — Side view">
-                <source src="rollouts/ball-pink-bowl/side.mp4" type="video/mp4">
+              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.100" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Blue-bowl rollout — Side view">
+                <source src="rollouts/ball-blue-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
               </video></div>
               <figcaption><strong>Side view</strong></figcaption>
             </figure>
             <div class="rollout-details">
               <div class="rollout-pair">
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Pink-bowl rollout — Overhead view">
-                    <source src="rollouts/ball-pink-bowl/overhead.mp4" type="video/mp4">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Blue-bowl rollout — Overhead view">
+                    <source src="rollouts/ball-blue-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Overhead view</strong></figcaption>
                 </figure>
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Pink-bowl rollout — Wrist view">
-                    <source src="rollouts/ball-pink-bowl/wrist.mp4" type="video/mp4">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Blue-bowl rollout — Wrist view">
+                    <source src="rollouts/ball-blue-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Wrist view</strong></figcaption>
                 </figure>
               </div>
-              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-pink-bowl-tactile-note">
+              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-blue-bowl-tactile-note">
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Pink-bowl rollout — Left GelSight">
-                    <source src="rollouts/ball-pink-bowl/tactile-left.mp4" type="video/mp4">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.137" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Blue-bowl rollout — Left GelSight">
+                    <source src="rollouts/ball-blue-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Left GelSight</strong></figcaption>
                 </figure>
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Pink-bowl rollout — Right GelSight">
-                    <source src="rollouts/ball-pink-bowl/tactile-right.mp4" type="video/mp4">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.123" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Blue-bowl rollout — Right GelSight">
+                    <source src="rollouts/ball-blue-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Right GelSight</strong></figcaption>
                 </figure>
               </div>
-              <p class="rollout-note" id="ball-pink-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              <p class="rollout-note" id="ball-blue-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+            </div>
+          </div>
+        </div>
+        <section class="secondary-rollout" aria-labelledby="rollout-pink-title">
+          <h3 class="subhead" id="rollout-pink-title">Pink-bowl rollout</h3>
+          <div class="rollout-player">
+            <div class="rollout-controls" hidden>
+              <button class="rollout-play" type="button">Play all views</button>
+              <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+              <span class="rollout-time" aria-hidden="true">0:00</span>
+            </div>
+            <p class="rollout-error" role="status" hidden></p>
+            <div class="rollout-views">
+              <figure class="clip">
+                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.060" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Pink-bowl rollout — Side view">
+                  <source src="rollouts/ball-pink-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
+                </video></div>
+                <figcaption><strong>Side view</strong></figcaption>
+              </figure>
+              <div class="rollout-details">
+                <div class="rollout-pair">
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.066" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Pink-bowl rollout — Overhead view">
+                      <source src="rollouts/ball-pink-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Overhead view</strong></figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Pink-bowl rollout — Wrist view">
+                      <source src="rollouts/ball-pink-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Wrist view</strong></figcaption>
+                  </figure>
+                </div>
+                <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-pink-bowl-tactile-note">
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.193" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Pink-bowl rollout — Left GelSight">
+                      <source src="rollouts/ball-pink-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Left GelSight</strong></figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.164" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Pink-bowl rollout — Right GelSight">
+                      <source src="rollouts/ball-pink-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Right GelSight</strong></figcaption>
+                  </figure>
+                </div>
+                <p class="rollout-note" id="ball-pink-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              </div>
             </div>
           </div>
         </section>
       </section>
       <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
         <h3 class="subhead" id="rollout-usb-title">Insert USB</h3>
-        <div class="rollout-views">
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/side.webp" aria-label="Insert USB — Side view">
-              <source src="rollouts/insert-usb/side.mp4" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Side view</strong></figcaption>
-          </figure>
-          <div class="rollout-details">
-            <div class="rollout-pair">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/overhead.webp" aria-label="Insert USB — Overhead view">
-                  <source src="rollouts/insert-usb/overhead.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Overhead view</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/wrist.webp" aria-label="Insert USB — Wrist view">
-                  <source src="rollouts/insert-usb/wrist.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Wrist view</strong></figcaption>
-              </figure>
+        <div class="rollout-player">
+          <div class="rollout-controls" hidden>
+            <button class="rollout-play" type="button">Play all views</button>
+            <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+            <span class="rollout-time" aria-hidden="true">0:00</span>
+          </div>
+          <p class="rollout-error" role="status" hidden></p>
+          <div class="rollout-views">
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.114" poster="rollouts/insert-usb/side.webp" aria-label="Insert USB — Side view">
+                <source src="rollouts/insert-usb/side.mp4?v=trimmed-3s" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Side view</strong></figcaption>
+            </figure>
+            <div class="rollout-details">
+              <div class="rollout-pair">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/insert-usb/overhead.webp" aria-label="Insert USB — Overhead view">
+                    <source src="rollouts/insert-usb/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Overhead view</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/insert-usb/wrist.webp" aria-label="Insert USB — Wrist view">
+                    <source src="rollouts/insert-usb/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Wrist view</strong></figcaption>
+                </figure>
+              </div>
+              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="insert-usb-tactile-note">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.203" poster="rollouts/insert-usb/tactile-left.webp" aria-label="Insert USB — Left GelSight">
+                    <source src="rollouts/insert-usb/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Left GelSight</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.189" poster="rollouts/insert-usb/tactile-right.webp" aria-label="Insert USB — Right GelSight">
+                    <source src="rollouts/insert-usb/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Right GelSight</strong></figcaption>
+                </figure>
+              </div>
+              <p class="rollout-note" id="insert-usb-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
             </div>
-            <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="insert-usb-tactile-note">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/tactile-left.webp" aria-label="Insert USB — Left GelSight">
-                  <source src="rollouts/insert-usb/tactile-left.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Left GelSight</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/tactile-right.webp" aria-label="Insert USB — Right GelSight">
-                  <source src="rollouts/insert-usb/tactile-right.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Right GelSight</strong></figcaption>
-              </figure>
-            </div>
-            <p class="rollout-note" id="insert-usb-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
           </div>
         </div>
       </section>
       <section id="rollout-wipe" aria-labelledby="rollout-wipe-title" hidden>
         <h3 class="subhead" id="rollout-wipe-title">Wipe Board</h3>
-        <div class="rollout-views">
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/side.webp" aria-label="Wipe Board — Side view">
-              <source src="rollouts/wipe-board/side.mp4" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Side view</strong></figcaption>
-          </figure>
-          <div class="rollout-details">
-            <div class="rollout-pair">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/overhead.webp" aria-label="Wipe Board — Overhead view">
-                  <source src="rollouts/wipe-board/overhead.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Overhead view</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/wrist.webp" aria-label="Wipe Board — Wrist view">
-                  <source src="rollouts/wipe-board/wrist.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Wrist view</strong></figcaption>
-              </figure>
+        <div class="rollout-player">
+          <div class="rollout-controls" hidden>
+            <button class="rollout-play" type="button">Play all views</button>
+            <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+            <span class="rollout-time" aria-hidden="true">0:00</span>
+          </div>
+          <p class="rollout-error" role="status" hidden></p>
+          <div class="rollout-views">
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.034" poster="rollouts/wipe-board/side.webp" aria-label="Wipe Board — Side view">
+                <source src="rollouts/wipe-board/side.mp4?v=trimmed-3s" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Side view</strong></figcaption>
+            </figure>
+            <div class="rollout-details">
+              <div class="rollout-pair">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.087" poster="rollouts/wipe-board/overhead.webp" aria-label="Wipe Board — Overhead view">
+                    <source src="rollouts/wipe-board/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Overhead view</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/wipe-board/wrist.webp" aria-label="Wipe Board — Wrist view">
+                    <source src="rollouts/wipe-board/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Wrist view</strong></figcaption>
+                </figure>
+              </div>
+              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="wipe-board-tactile-note">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.153" poster="rollouts/wipe-board/tactile-left.webp" aria-label="Wipe Board — Left GelSight">
+                    <source src="rollouts/wipe-board/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Left GelSight</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.047" poster="rollouts/wipe-board/tactile-right.webp" aria-label="Wipe Board — Right GelSight">
+                    <source src="rollouts/wipe-board/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Right GelSight</strong></figcaption>
+                </figure>
+              </div>
+              <p class="rollout-note" id="wipe-board-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
             </div>
-            <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="wipe-board-tactile-note">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/tactile-left.webp" aria-label="Wipe Board — Left GelSight">
-                  <source src="rollouts/wipe-board/tactile-left.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Left GelSight</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/tactile-right.webp" aria-label="Wipe Board — Right GelSight">
-                  <source src="rollouts/wipe-board/tactile-right.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Right GelSight</strong></figcaption>
-              </figure>
-            </div>
-            <p class="rollout-note" id="wipe-board-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
           </div>
         </div>
       </section>
       <section id="rollout-chip" aria-labelledby="rollout-chip-title" hidden>
         <h3 class="subhead" id="rollout-chip-title">Chip Moving</h3>
-        <div class="rollout-views">
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/side.webp" aria-label="Chip Moving — Side view">
-              <source src="rollouts/chip-moving/side.mp4" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Side view</strong></figcaption>
-          </figure>
-          <div class="rollout-details">
-            <div class="rollout-pair">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/overhead.webp" aria-label="Chip Moving — Overhead view">
-                  <source src="rollouts/chip-moving/overhead.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Overhead view</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/wrist.webp" aria-label="Chip Moving — Wrist view">
-                  <source src="rollouts/chip-moving/wrist.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Wrist view</strong></figcaption>
-              </figure>
+        <div class="rollout-player">
+          <div class="rollout-controls" hidden>
+            <button class="rollout-play" type="button">Play all views</button>
+            <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+            <span class="rollout-time" aria-hidden="true">0:00</span>
+          </div>
+          <p class="rollout-error" role="status" hidden></p>
+          <div class="rollout-views">
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.136" poster="rollouts/chip-moving/side.webp" aria-label="Chip Moving — Side view">
+                <source src="rollouts/chip-moving/side.mp4?v=trimmed-3s" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Side view</strong></figcaption>
+            </figure>
+            <div class="rollout-details">
+              <div class="rollout-pair">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.101" poster="rollouts/chip-moving/overhead.webp" aria-label="Chip Moving — Overhead view">
+                    <source src="rollouts/chip-moving/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Overhead view</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/chip-moving/wrist.webp" aria-label="Chip Moving — Wrist view">
+                    <source src="rollouts/chip-moving/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Wrist view</strong></figcaption>
+                </figure>
+              </div>
+              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="chip-moving-tactile-note">
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.109" poster="rollouts/chip-moving/tactile-left.webp" aria-label="Chip Moving — Left GelSight">
+                    <source src="rollouts/chip-moving/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Left GelSight</strong></figcaption>
+                </figure>
+                <figure class="clip">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.077" poster="rollouts/chip-moving/tactile-right.webp" aria-label="Chip Moving — Right GelSight">
+                    <source src="rollouts/chip-moving/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                  </video></div>
+                  <figcaption><strong>Right GelSight</strong></figcaption>
+                </figure>
+              </div>
+              <p class="rollout-note" id="chip-moving-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
             </div>
-            <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="chip-moving-tactile-note">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/tactile-left.webp" aria-label="Chip Moving — Left GelSight">
-                  <source src="rollouts/chip-moving/tactile-left.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Left GelSight</strong></figcaption>
-              </figure>
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/tactile-right.webp" aria-label="Chip Moving — Right GelSight">
-                  <source src="rollouts/chip-moving/tactile-right.mp4" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Right GelSight</strong></figcaption>
-              </figure>
-            </div>
-            <p class="rollout-note" id="chip-moving-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
           </div>
         </div>
       </section>
-      <figure class="scorecard">
-        <figcaption>Mean success rate across the four real-world tasks</figcaption>
-        <dl class="bars">
-          <div><dt>π<sub>0.5</sub></dt>
-            <dd><span class="bar" style="--percent: 50.00%" aria-hidden="true"></span><b>50.00%</b></dd>
-          </div>
-          <div><dt>TacImag</dt>
-            <dd><span class="bar" style="--percent: 55.00%" aria-hidden="true"></span><b>55.00%</b></dd>
-          </div>
-          <div class="highlight"><dt>TacitTouch</dt>
-            <dd><span class="bar" style="--percent: 72.50%" aria-hidden="true"></span><b>72.50%</b></dd>
-          </div>
-          <div class="teacher"><dt>SimpleTouch</dt>
-            <dd><span class="bar" style="--percent: 76.25%" aria-hidden="true"></span><b>76.25%</b></dd>
-          </div>
-        </dl>
-      </figure>
+      <div class="scorecard">
+        <div class="score-table-scroll" role="region" aria-label="Real-world task success" tabindex="0">
+          <table class="score-table">
+            <caption>Real-world task success (%)</caption>
+            <thead>
+              <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Ball Sorting</th><td>75</td><td>55</td><td>100</td><td class="score-tacit">80</td></tr>
+              <tr><th scope="row">Insert USB</th><td>5</td><td>15</td><td>25</td><td class="score-tacit">25</td></tr>
+              <tr><th scope="row">Wipe Board</th><td>65</td><td>75</td><td>90</td><td class="score-tacit">85</td></tr>
+              <tr><th scope="row">Chip Moving</th><td>55</td><td>75</td><td>90</td><td class="score-tacit">100</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Mean</th><td>50.00</td><td>55.00</td><td>76.25</td><td class="score-tacit">72.50</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
       <p class="section-analysis">Chip Moving saw the largest gain over vision-only control, with success rising from 55% to 100%. On Insert USB, the hardest of the four physical tasks, TacitTouch matched the measured-touch teacher at 25%. These rates come from 20 rollouts per method and task.</p>
     </div>
   </section>
@@ -311,7 +354,7 @@
   <section class="wrap section" id="simulation" aria-labelledby="simulation-title">
     <div class="section-intro">
       <h2 id="simulation-title">Simulation</h2>
-      <p>Four UniVTAC tasks make up the main benchmark. The four additional tasks probe transfer to other interactions, including key extraction and hole insertion. Open a sensor view to follow its camera streams and tactile readings together.</p>
+      <p>The four main UniVTAC tasks test lifting, placement and insertion. Open a sensor view to follow the camera streams and tactile readings together.</p>
     </div>
     <h3 class="subhead">UniVTAC rollouts</h3>
     <div class="clip-grid four" id="simulation-grid">
@@ -339,48 +382,26 @@
         </video></div>
         <figcaption><strong>Insert Tube</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-tube" data-task="Insert Tube" aria-label="Insert Tube sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-pull-out-key.webp" aria-label="Pull-out Key simulation rollout">
-          <source src="sim-pull-out-key.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Pull-out Key</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="pull-out-key" data-task="Pull-out Key" aria-label="Pull-out Key sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-hole.webp" aria-label="Insert Hole simulation rollout">
-          <source src="sim-insert-hole.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Insert Hole</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-hole" data-task="Insert Hole" aria-label="Insert Hole sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-grasp-classify.webp" aria-label="Grasp Classify simulation rollout">
-          <source src="sim-grasp-classify.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Grasp Classify</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="grasp-classify" data-task="Grasp Classify" aria-label="Grasp Classify sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-hdmi.webp" aria-label="Insert HDMI simulation rollout">
-          <source src="sim-insert-hdmi.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Insert HDMI</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-hdmi" data-task="Insert HDMI" aria-label="Insert HDMI sensor views">Sensor views</button></figcaption>
-      </figure>
     </div>
-    <figure class="scorecard">
-        <figcaption>Mean success rate across the four main simulation tasks</figcaption>
-        <dl class="bars">
-          <div><dt>π<sub>0.5</sub></dt>
-            <dd><span class="bar" style="--percent: 61.5%" aria-hidden="true"></span><b>61.5%</b></dd>
-          </div>
-          <div><dt>TacImag</dt>
-            <dd><span class="bar" style="--percent: 73.8%" aria-hidden="true"></span><b>73.8%</b></dd>
-          </div>
-          <div class="highlight"><dt>TacitTouch</dt>
-            <dd><span class="bar" style="--percent: 77.5%" aria-hidden="true"></span><b>77.5%</b></dd>
-          </div>
-          <div class="teacher"><dt>SimpleTouch</dt>
-            <dd><span class="bar" style="--percent: 79.5%" aria-hidden="true"></span><b>79.5%</b></dd>
-          </div>
-        </dl>
-      </figure>
+    <div class="scorecard">
+      <div class="score-table-scroll" role="region" aria-label="UniVTAC task success" tabindex="0">
+        <table class="score-table">
+          <caption>UniVTAC task success (%)</caption>
+          <thead>
+            <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Lift Bottle</th><td>92</td><td>100</td><td>100</td><td class="score-tacit">96</td></tr>
+            <tr><th scope="row">Lift Can</th><td>59</td><td>63</td><td>68</td><td class="score-tacit">85</td></tr>
+            <tr><th scope="row">Put Bottle</th><td>31</td><td>45</td><td>50</td><td class="score-tacit">37</td></tr>
+            <tr><th scope="row">Insert Tube</th><td>64</td><td>87</td><td>100</td><td class="score-tacit">92</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th scope="row">Mean</th><td>61.5</td><td>73.8</td><td>79.5</td><td class="score-tacit">77.5</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
     <p class="section-analysis">Lift Can and Insert Tube contributed the largest gains over the vision-only π<sub>0.5</sub> baseline. Success rose from 59% to 85% on Lift Can and from 64% to 92% on Insert Tube.</p>
   </section>
 
@@ -449,8 +470,8 @@
         <figcaption>TacitTouch training and deployment</figcaption>
       </figure>
       <figure class="paper-figure">
-        <a href="hardware.webp" data-figure aria-label="Enlarge Franka platform and sensing hardware">
-          <img src="hardware.webp" alt="Franka FR3, instrumented gripper and teleoperation hardware" loading="lazy">
+        <a href="hardware.webp?v=aligned" data-figure aria-label="Enlarge Franka platform and sensing hardware">
+          <img src="hardware.webp?v=aligned" width="1500" height="1200" alt="Franka FR3, instrumented gripper and teleoperation hardware" loading="lazy">
         </a>
         <figcaption>Franka platform and sensing hardware</figcaption>
       </figure>

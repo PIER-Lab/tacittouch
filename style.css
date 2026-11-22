@@ -100,6 +100,7 @@ h2 {
 .authors p + p { margin-top: 4px; }
 .authors p span { margin-left: 1em; }
 .authors sup { color: var(--teal); }
+.author-notes { font-size: .88rem; }
 .metrics {
   display: grid; grid-template-columns: 1.1fr 1fr 1fr; align-items: center;
   margin-top: clamp(30px, 4.5vw, 60px); border-block: 1px solid var(--rule); padding-block: 23px;
@@ -119,6 +120,19 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .video-frame { border-radius: var(--radius); overflow: hidden; background: #112b30; aspect-ratio: 16 / 9; }
 .video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.rollout-controls {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) 5ch; gap: clamp(8px, 1.6vw, 20px);
+  align-items: center; margin-bottom: 14px;
+}
+.rollout-play {
+  min-width: 8.9rem; min-height: 40px; padding: 5px 13px; font-size: .89rem; font-weight: 630;
+  color: white; background: var(--deep); border: 1px solid var(--deep); border-radius: 8px;
+}
+.rollout-play:hover { background: var(--teal); border-color: var(--teal); }
+.rollout-controls input { min-width: 0; width: 100%; margin: 0; accent-color: var(--teal); }
+.rollout-time { color: var(--subtle); text-align: end; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.rollout-error { margin: 0 0 12px; color: var(--subtle); }
+.rollout-player video:not([controls]) { cursor: pointer; }
 .rollout-views {
   --view-gap: clamp(10px, 1.2vw, 18px);
   display: grid;
@@ -146,20 +160,15 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
   margin-top: clamp(30px, 4.8vw, 62px);
   padding: clamp(16px, 3vw, 34px); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper);
 }
-.scorecard figcaption { margin-bottom: 16px; font-weight: 650; }
-.bars { max-width: 1020px; display: grid; gap: 9px; }
-.bars > div, .bars dd { display: grid; align-items: center; }
-.bars > div { grid-template-columns: clamp(89px, 15%, 140px) minmax(0, 1fr); gap: 10px; }
-.bars dd { grid-template-columns: minmax(0, 1fr) 4.3rem; gap: 12px; }
-.bars dt, .bars b { font-size: .92rem; }
-.bars b { font-weight: 630; text-align: end; font-variant-numeric: tabular-nums; }
-.bar {
-  height: 12px; border-radius: 3px; --fill: #a0b4ad;
-  background: linear-gradient(to right, var(--fill) var(--percent), #e9f0ed var(--percent));
-}
-.teacher .bar { --fill: #5d817a; }
-.highlight { color: var(--teal); font-weight: 680; }
-.highlight .bar { --fill: var(--teal); }
+.score-table-scroll { overflow-x: auto; }
+.score-table { width: 100%; min-width: 470px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.score-table caption { text-align: left; font-weight: 650; margin-bottom: 12px; }
+.score-table th, .score-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); text-align: end; }
+.score-table th:first-child { text-align: start; padding-left: 0; }
+.score-table thead th { font-size: .91rem; }
+.score-table tbody th { font-weight: 600; }
+.score-table .score-tacit { color: var(--teal); font-weight: 680; }
+.score-table tfoot th, .score-table tfoot td { border: 0; font-weight: 650; }
 
 .segmented { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
 .segmented button {
@@ -182,7 +191,9 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .contact-figures summary { color: var(--mint); }
 
 .paper-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.method-grid { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: start; }
+.method-grid { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); }
+.method-grid .paper-figure { display: grid; grid-template-rows: 1fr auto; }
+.method-grid .paper-figure a { display: grid; align-items: center; }
 .paper-figure {
   min-width: 0; background: white; color: var(--ink); border: 1px solid var(--rule);
   border-radius: var(--radius); overflow: hidden;
@@ -231,7 +242,7 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .overview-story .authors { grid-row: 3; }
 }
 @media (max-width: 760px) {
-  .rollout-views { grid-template-columns: minmax(0, 1fr); }
+  .rollout-views, .method-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 680px) {
   section[id] { scroll-margin-top: 104px; }
@@ -254,8 +265,9 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .metrics span { font-size: .88rem; }
   .method-grid, .paper-grid, .citation, .contact-stage { grid-template-columns: 1fr; }
   .clip-grid { row-gap: 19px; }
-  .bars b, .bars dt { font-size: .83rem; }
-  .bars dd { gap: 7px; grid-template-columns: minmax(0, 1fr) 3.65rem; }
+  .score-table { min-width: 0; font-size: .8rem; }
+  .score-table th, .score-table td { padding: 7px 4px; }
+  .score-table thead th { font-size: inherit; }
   .contact-stage figcaption span { font-size: .92rem; }
 }
 @media (max-width: 410px) {
