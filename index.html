@@ -8,7 +8,7 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=rollout-layout">
+  <link rel="stylesheet" href="style.css?v=real-rollout-videos">
   <script src="page.js?v=rollout-tasks" defer></script>
 </head>
 <body id="top">
@@ -63,7 +63,7 @@
     <div class="wrap section">
       <div class="section-intro">
         <h2 id="rollouts-title">Real-world manipulation</h2>
-        <p>TacitTouch performs four contact-rich tasks on the Franka FR3.</p>
+        <p>TacitTouch performs four contact-rich tasks on the Franka FR3. Each rollout includes three camera views and both GelSight recordings.</p>
       </div>
       <div class="segmented rollout-switcher" role="group" aria-label="Real-world task">
         <button type="button" data-rollout-choice aria-pressed="true" aria-controls="rollout-ball">Ball Sorting</button>
@@ -73,129 +73,187 @@
       </div>
 
       <section id="rollout-ball" aria-labelledby="rollout-ball-title">
-        <div class="subhead">
-          <div><h3 id="rollout-ball-title">Blue-bowl rollout</h3><p>Three views of the same autonomous ball-sorting rollout, played at recorded speed.</p></div>
-        </div>
+        <h3 class="subhead" id="rollout-ball-title">Blue-bowl rollout</h3>
         <div class="clip-grid triple">
           <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-blue.webp" aria-label="Ball Sorting — Overhead view">
-              <source src="real-ball-blue.mp4?cut=2s" type="video/mp4">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Blue-bowl rollout — Overhead view">
+              <source src="rollouts/ball-blue-bowl/overhead.mp4" type="video/mp4">
             </video></div>
-            <figcaption><strong>Overhead view</strong><span>Blue bowl</span></figcaption>
-          </figure>
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-side.webp" aria-label="Ball Sorting — Side view">
-              <source src="real-ball-side.mp4?cut=2s" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Side view</strong><span>Same rollout</span></figcaption>
-          </figure>
-          <figure class="clip">
-            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-wrist.webp" aria-label="Ball Sorting — Wrist view">
-              <source src="real-ball-wrist.mp4?cut=2s" type="video/mp4">
-            </video></div>
-            <figcaption><strong>Wrist view</strong><span>Same rollout</span></figcaption>
-          </figure>
-        </div>
-        <div class="secondary-rollout">
-          <h3 class="subhead">Pink-bowl rollout</h3>
-          <div class="clip-grid triple">
-            <figure class="clip" data-video-slot="real-ball-pink-overhead">
-              <div class="pending-media pending-empty">
-                <span>Rollout video pending</span>
-              </div>
-              <figcaption><strong>Overhead view</strong></figcaption>
-            </figure>
-            <figure class="clip" data-video-slot="real-ball-pink-side">
-              <div class="pending-media pending-empty">
-                <span>Rollout video pending</span>
-              </div>
-              <figcaption><strong>Side view</strong></figcaption>
-            </figure>
-            <figure class="clip" data-video-slot="real-ball-pink">
-              <div class="pending-media">
-                <img src="real-ball-pink.webp" alt="Ball Sorting, pink bowl wrist-camera demonstration frame" loading="lazy">
-                <span>Rollout video pending</span>
-              </div>
-              <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-      <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
-        <div class="subhead">
-          <div><h3 id="rollout-usb-title">Insert USB</h3><p>Grasp, align and insert the plug.</p></div>
-        </div>
-        <div class="clip-grid triple">
-          <figure class="clip" data-video-slot="real-usb-overhead">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
             <figcaption><strong>Overhead view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-usb-side">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Blue-bowl rollout — Side view">
+              <source src="rollouts/ball-blue-bowl/side.mp4" type="video/mp4">
+            </video></div>
             <figcaption><strong>Side view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-usb">
-            <div class="pending-media">
-              <img src="real-usb.webp" alt="Insert USB wrist-camera demonstration frame" loading="lazy">
-              <span>Rollout video pending</span>
-            </div>
-            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Blue-bowl rollout — Wrist view">
+              <source src="rollouts/ball-blue-bowl/wrist.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Wrist view</strong></figcaption>
+          </figure>
+        </div>
+        <div class="clip-grid rollout-tactile" role="group" aria-label="Fingertip recordings">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Blue-bowl rollout — Left GelSight">
+              <source src="rollouts/ball-blue-bowl/tactile-left.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Left GelSight</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Blue-bowl rollout — Right GelSight">
+              <source src="rollouts/ball-blue-bowl/tactile-right.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Right GelSight</strong></figcaption>
+          </figure>
+        </div>
+        <section class="secondary-rollout" aria-labelledby="rollout-pink-title">
+          <h3 class="subhead" id="rollout-pink-title">Pink-bowl rollout</h3>
+          <div class="clip-grid triple">
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Pink-bowl rollout — Overhead view">
+                <source src="rollouts/ball-pink-bowl/overhead.mp4" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Overhead view</strong></figcaption>
+            </figure>
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Pink-bowl rollout — Side view">
+                <source src="rollouts/ball-pink-bowl/side.mp4" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Side view</strong></figcaption>
+            </figure>
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Pink-bowl rollout — Wrist view">
+                <source src="rollouts/ball-pink-bowl/wrist.mp4" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Wrist view</strong></figcaption>
+            </figure>
+          </div>
+          <div class="clip-grid rollout-tactile" role="group" aria-label="Fingertip recordings">
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Pink-bowl rollout — Left GelSight">
+                <source src="rollouts/ball-pink-bowl/tactile-left.mp4" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Left GelSight</strong></figcaption>
+            </figure>
+            <figure class="clip">
+              <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Pink-bowl rollout — Right GelSight">
+                <source src="rollouts/ball-pink-bowl/tactile-right.mp4" type="video/mp4">
+              </video></div>
+              <figcaption><strong>Right GelSight</strong></figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+      <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
+        <h3 class="subhead" id="rollout-usb-title">Insert USB</h3>
+        <div class="clip-grid triple">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/overhead.webp" aria-label="Insert USB — Overhead view">
+              <source src="rollouts/insert-usb/overhead.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Overhead view</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/side.webp" aria-label="Insert USB — Side view">
+              <source src="rollouts/insert-usb/side.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Side view</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/wrist.webp" aria-label="Insert USB — Wrist view">
+              <source src="rollouts/insert-usb/wrist.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Wrist view</strong></figcaption>
+          </figure>
+        </div>
+        <div class="clip-grid rollout-tactile" role="group" aria-label="Fingertip recordings">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/tactile-left.webp" aria-label="Insert USB — Left GelSight">
+              <source src="rollouts/insert-usb/tactile-left.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Left GelSight</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/insert-usb/tactile-right.webp" aria-label="Insert USB — Right GelSight">
+              <source src="rollouts/insert-usb/tactile-right.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Right GelSight</strong></figcaption>
           </figure>
         </div>
       </section>
       <section id="rollout-wipe" aria-labelledby="rollout-wipe-title" hidden>
-        <div class="subhead">
-          <div><h3 id="rollout-wipe-title">Wipe Board</h3><p>Pick up the eraser and clear the marks.</p></div>
-        </div>
+        <h3 class="subhead" id="rollout-wipe-title">Wipe Board</h3>
         <div class="clip-grid triple">
-          <figure class="clip" data-video-slot="real-wipe-overhead">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/overhead.webp" aria-label="Wipe Board — Overhead view">
+              <source src="rollouts/wipe-board/overhead.mp4" type="video/mp4">
+            </video></div>
             <figcaption><strong>Overhead view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-wipe-side">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/side.webp" aria-label="Wipe Board — Side view">
+              <source src="rollouts/wipe-board/side.mp4" type="video/mp4">
+            </video></div>
             <figcaption><strong>Side view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-wipe">
-            <div class="pending-media">
-              <img src="real-wipe.webp" alt="Wipe Board wrist-camera demonstration frame" loading="lazy">
-              <span>Rollout video pending</span>
-            </div>
-            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/wrist.webp" aria-label="Wipe Board — Wrist view">
+              <source src="rollouts/wipe-board/wrist.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Wrist view</strong></figcaption>
+          </figure>
+        </div>
+        <div class="clip-grid rollout-tactile" role="group" aria-label="Fingertip recordings">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/tactile-left.webp" aria-label="Wipe Board — Left GelSight">
+              <source src="rollouts/wipe-board/tactile-left.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Left GelSight</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/wipe-board/tactile-right.webp" aria-label="Wipe Board — Right GelSight">
+              <source src="rollouts/wipe-board/tactile-right.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Right GelSight</strong></figcaption>
           </figure>
         </div>
       </section>
       <section id="rollout-chip" aria-labelledby="rollout-chip-title" hidden>
-        <div class="subhead">
-          <div><h3 id="rollout-chip-title">Chip Moving</h3><p>Transfer the chip and release it intact.</p></div>
-        </div>
+        <h3 class="subhead" id="rollout-chip-title">Chip Moving</h3>
         <div class="clip-grid triple">
-          <figure class="clip" data-video-slot="real-chip-overhead">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/overhead.webp" aria-label="Chip Moving — Overhead view">
+              <source src="rollouts/chip-moving/overhead.mp4" type="video/mp4">
+            </video></div>
             <figcaption><strong>Overhead view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-chip-side">
-            <div class="pending-media pending-empty">
-              <span>Rollout video pending</span>
-            </div>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/side.webp" aria-label="Chip Moving — Side view">
+              <source src="rollouts/chip-moving/side.mp4" type="video/mp4">
+            </video></div>
             <figcaption><strong>Side view</strong></figcaption>
           </figure>
-          <figure class="clip" data-video-slot="real-chip">
-            <div class="pending-media">
-              <img src="real-chip.webp" alt="Chip Moving wrist-camera demonstration frame" loading="lazy">
-              <span>Rollout video pending</span>
-            </div>
-            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/wrist.webp" aria-label="Chip Moving — Wrist view">
+              <source src="rollouts/chip-moving/wrist.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Wrist view</strong></figcaption>
+          </figure>
+        </div>
+        <div class="clip-grid rollout-tactile" role="group" aria-label="Fingertip recordings">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/tactile-left.webp" aria-label="Chip Moving — Left GelSight">
+              <source src="rollouts/chip-moving/tactile-left.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Left GelSight</strong></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="rollouts/chip-moving/tactile-right.webp" aria-label="Chip Moving — Right GelSight">
+              <source src="rollouts/chip-moving/tactile-right.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Right GelSight</strong></figcaption>
           </figure>
         </div>
       </section>

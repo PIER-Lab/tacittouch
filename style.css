@@ -119,23 +119,19 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .clip-grid { display: grid; gap: clamp(12px, 1.7vw, 24px); }
 .triple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.video-frame, .pending-media { border-radius: var(--radius); overflow: hidden; background: #112b30; aspect-ratio: 16 / 9; }
-.video-frame video, .pending-media img { display: block; width: 100%; height: 100%; }
-.video-frame video { object-fit: contain; }
-.pending-media img { object-fit: cover; }
+.video-frame { border-radius: var(--radius); overflow: hidden; background: #112b30; aspect-ratio: 16 / 9; }
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.rollout-tactile {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(14px, 2vw, 24px);
+}
+.rollout-tactile .video-frame { aspect-ratio: 4 / 3; }
 .clip figcaption {
   display: flex; align-items: baseline; justify-content: space-between; gap: 6px 12px;
   flex-wrap: wrap; margin-top: 10px; line-height: 1.35;
 }
 .clip figcaption strong { font-size: 1rem; font-weight: 660; }
 .clip figcaption span, .text-button { font-size: .88rem; color: var(--subtle); }
-.pending-media { position: relative; }
-.pending-media span {
-  position: absolute; left: 9px; bottom: 9px; padding: 3px 8px; color: white; background: #102b32e8;
-  border-radius: 5px; font-size: .8rem; line-height: 1.4; font-weight: 640;
-}
-.pending-empty { display: grid; place-items: center; border: 1px dashed #a8bcb3; background: #e4eeea; }
-.pending-empty span { position: static; padding: 0; background: none; color: var(--subtle); font-size: .88rem; }
 .disclosure, .secondary-rollout { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 14px; }
 .disclosure summary { cursor: pointer; width: fit-content; color: var(--teal); font-weight: 630; }
 .disclosure[open] summary { margin-bottom: 17px; }
@@ -247,6 +243,7 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .metrics span { font-size: .88rem; }
   .triple, .method-grid, .paper-grid, .citation, .contact-stage { grid-template-columns: 1fr; }
   .clip-grid { row-gap: 19px; }
+  .rollout-tactile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bars b, .bars dt { font-size: .83rem; }
   .bars dd { gap: 7px; grid-template-columns: minmax(0, 1fr) 3.65rem; }
   .contact-stage figcaption span { font-size: .92rem; }
