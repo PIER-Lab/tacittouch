@@ -50,17 +50,6 @@ for (const button of groupButtons) {
   });
 }
 
-const contactButtons = [...document.querySelectorAll('[data-contact-choice]')];
-const contactPanels = [...document.querySelectorAll('[data-contact-task]')];
-for (const button of contactButtons) {
-  button.addEventListener('click', () => {
-    for (const panel of contactPanels) {
-      panel.hidden = panel.dataset.contactTask !== button.dataset.contactChoice;
-      if (panel.hidden) panel.querySelector('video').pause();
-    }
-    for (const option of contactButtons) option.setAttribute('aria-pressed', String(option === button));
-  });
-}
 for (const disclosure of document.querySelectorAll('details')) {
   disclosure.addEventListener('toggle', () => {
     if (!disclosure.open) for (const video of disclosure.querySelectorAll('video')) video.pause();

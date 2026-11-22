@@ -8,7 +8,7 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=contact-grid">
   <script src="page.js" defer></script>
 </head>
 <body id="top">
@@ -225,37 +225,31 @@
         <h2 id="contact-title">Contact visualization</h2>
         <p>Wrist RGB and left and right GelSight images, paired in time from teleoperated demonstrations.</p>
       </div>
-      <div class="segmented contact-tabs" aria-label="Demonstration task">
-        <button type="button" data-contact-choice="ball" aria-controls="contact-ball" aria-pressed="true">Ball Sorting</button>
-        <button type="button" data-contact-choice="usb" aria-controls="contact-usb" aria-pressed="false">Insert USB</button>
-        <button type="button" data-contact-choice="wipe" aria-controls="contact-wipe" aria-pressed="false">Wipe Board</button>
-        <button type="button" data-contact-choice="chip" aria-controls="contact-chip" aria-pressed="false">Chip Moving</button>
-      </div>
-      <div class="contact-stage">
-        <figure id="contact-ball" data-contact-task="ball">
-        <div class="video-frame"><video controls playsinline preload="none" poster="contact-ball.webp" aria-label="Ball Sorting teleoperated demonstration with measured tactile images">
-          <source src="contact-ball.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Ball Sorting</strong><span>The gripper contacts the ball before lifting and sorting it.</span></figcaption>
-      </figure>
-        <figure id="contact-usb" data-contact-task="usb" hidden>
-        <div class="video-frame"><video controls playsinline preload="none" poster="contact-usb.webp" aria-label="Insert USB teleoperated demonstration with measured tactile images">
-          <source src="contact-usb.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Insert USB</strong><span>The gripper holds the plug through alignment and insertion.</span></figcaption>
-      </figure>
-        <figure id="contact-wipe" data-contact-task="wipe" hidden>
-        <div class="video-frame"><video controls playsinline preload="none" poster="contact-wipe.webp" aria-label="Wipe Board teleoperated demonstration with measured tactile images">
-          <source src="contact-wipe.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Wipe Board</strong><span>The gripper picks up the eraser and sweeps it across the board.</span></figcaption>
-      </figure>
-        <figure id="contact-chip" data-contact-task="chip" hidden>
-        <div class="video-frame"><video controls playsinline preload="none" poster="contact-chip.webp" aria-label="Chip Moving teleoperated demonstration with measured tactile images">
-          <source src="contact-chip.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Chip Moving</strong><span>The gripper handles the chip between two bottle mouths.</span></figcaption>
-      </figure>
+      <div class="clip-grid contact-stage">
+        <figure id="contact-ball">
+          <div class="video-frame"><video controls playsinline preload="none" poster="contact-ball.webp" aria-label="Ball Sorting teleoperated demonstration with measured tactile images">
+            <source src="contact-ball.mp4" type="video/mp4">
+          </video></div>
+          <figcaption><strong>Ball Sorting</strong><span>The gripper contacts the ball before lifting and sorting it.</span></figcaption>
+        </figure>
+        <figure id="contact-usb">
+          <div class="video-frame"><video controls playsinline preload="none" poster="contact-usb.webp" aria-label="Insert USB teleoperated demonstration with measured tactile images">
+            <source src="contact-usb.mp4" type="video/mp4">
+          </video></div>
+          <figcaption><strong>Insert USB</strong><span>The gripper holds the plug through alignment and insertion.</span></figcaption>
+        </figure>
+        <figure id="contact-wipe">
+          <div class="video-frame"><video controls playsinline preload="none" poster="contact-wipe.webp" aria-label="Wipe Board teleoperated demonstration with measured tactile images">
+            <source src="contact-wipe.mp4" type="video/mp4">
+          </video></div>
+          <figcaption><strong>Wipe Board</strong><span>The gripper picks up the eraser and sweeps it across the board.</span></figcaption>
+        </figure>
+        <figure id="contact-chip">
+          <div class="video-frame"><video controls playsinline preload="none" poster="contact-chip.webp" aria-label="Chip Moving teleoperated demonstration with measured tactile images">
+            <source src="contact-chip.mp4" type="video/mp4">
+          </video></div>
+          <figcaption><strong>Chip Moving</strong><span>The gripper handles the chip between two bottle mouths.</span></figcaption>
+        </figure>
       </div>
       <details class="disclosure contact-figures">
         <summary>View contact stages from the paper</summary>

@@ -174,11 +174,7 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 
 .contact-band { background: var(--deep); color: #effcf5; }
 .contact-band .section-intro p { color: #c1d9d2; }
-.contact-tabs { margin-bottom: 19px; }
-.contact-tabs button { background: #15373c; border-color: #37605f; color: #def0e8; }
-.contact-tabs button[aria-pressed="true"] { background: var(--mint); color: #15392f; border-color: var(--mint); }
-.contact-tabs button[aria-pressed="false"]:hover { color: white; border-color: var(--mint); }
-.contact-stage { max-width: 1050px; }
+.contact-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .contact-stage .video-frame { aspect-ratio: 966 / 480; border: 1px solid #375656; }
 .contact-stage figcaption { margin-top: 12px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 14px; }
 .contact-stage figcaption span { color: #c1d9d2; }
@@ -249,7 +245,7 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .metrics > p { grid-column: 1 / -1; }
   .metrics > div:nth-child(2) { padding-left: 0; border-left: 0; }
   .metrics span { font-size: .88rem; }
-  .triple, .method-grid, .paper-grid, .citation { grid-template-columns: 1fr; }
+  .triple, .method-grid, .paper-grid, .citation, .contact-stage { grid-template-columns: 1fr; }
   .clip-grid { row-gap: 19px; }
   .bars b, .bars dt { font-size: .83rem; }
   .bars dd { gap: 7px; grid-template-columns: minmax(0, 1fr) 3.65rem; }
