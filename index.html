@@ -8,8 +8,8 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp?v=real-world">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=paper-overview">
-  <script src="page.js?v=rollout-tasks" defer></script>
+  <link rel="stylesheet" href="style.css?v=gallery-cleanup">
+  <script src="page.js?v=gallery-cleanup" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#content">Skip to content</a>
@@ -35,10 +35,6 @@
         <p class="paper-title">Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation</p>
         <div class="hero-links"><a class="button primary" href="#rollouts">Watch rollouts</a><a class="button quiet" href="#method">Explore the method</a></div>
       </div>
-      <div class="reel-controls">
-        <span>Real-world highlights</span>
-        <button type="button" class="reel-toggle" aria-controls="hero-video" hidden>Play reel</button>
-      </div>
     </div>
   </section>
 
@@ -51,16 +47,14 @@
           <p>TacImag predicts tactile observations during inference and passes them to its policy. TacitTouch transfers the teacher’s guidance during training. The deployed student then acts from camera images, robot state and the task instruction.</p>
         </div>
         <div class="authors">
-          <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
+          <p>Chen Yang<sup title="Equal contribution">1,*</sup>, Linhao Wang<sup title="Equal contribution">1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup title="Corresponding author">1,†</sup></p>
           <p><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
-          <p class="author-notes">* Equal contribution. † Corresponding author.</p>
         </div>
       </div>
       <figure class="paper-figure" id="figure-1">
         <a href="results.webp" data-figure aria-label="Enlarge Figure 1, imagination versus distillation">
           <img src="results.webp" width="2240" height="1688" alt="Comparison of tactile imagination and distillation alongside a radar plot of task success rates" loading="lazy" decoding="async">
         </a>
-        <figcaption><strong>Figure 1. Imagination versus distillation.</strong> The radar plot compares success rates across four UniVTAC tasks and four real-world tasks.</figcaption>
       </figure>
     </div>
     <div class="metrics" aria-label="TacitTouch gains over the vision-only baseline">
@@ -319,58 +313,51 @@
       <h2 id="simulation-title">Simulation</h2>
       <p>Four UniVTAC tasks make up the main benchmark. The four additional tasks probe transfer to other interactions, including key extraction and hole insertion. Open a sensor view to follow its camera streams and tactile readings together.</p>
     </div>
-    <div class="gallery-heading">
-      <h3>UniVTAC rollouts</h3>
-      <div class="segmented" aria-label="Simulation task group">
-        <button type="button" data-group="all" aria-pressed="true" aria-controls="simulation-grid">All tasks <span>8</span></button>
-        <button type="button" data-group="main" aria-pressed="false" aria-controls="simulation-grid">Main <span>4</span></button>
-        <button type="button" data-group="additional" aria-pressed="false" aria-controls="simulation-grid">Additional <span>4</span></button>
-      </div>
-    </div>
+    <h3 class="subhead">UniVTAC rollouts</h3>
     <div class="clip-grid four" id="simulation-grid">
-      <figure class="clip sim-clip" data-task-group="main">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-bottle.webp" aria-label="Lift Bottle simulation rollout">
           <source src="sim-lift-bottle.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Lift Bottle</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-bottle" data-task="Lift Bottle" aria-label="Lift Bottle sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="main">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-can.webp" aria-label="Lift Can simulation rollout">
           <source src="sim-lift-can.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Lift Can</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-can" data-task="Lift Can" aria-label="Lift Can sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="main">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-put-bottle.webp" aria-label="Put Bottle simulation rollout">
           <source src="sim-put-bottle.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Put Bottle</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="put-bottle" data-task="Put Bottle" aria-label="Put Bottle sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="main">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-tube.webp" aria-label="Insert Tube simulation rollout">
           <source src="sim-insert-tube.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Insert Tube</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-tube" data-task="Insert Tube" aria-label="Insert Tube sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="additional">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-pull-out-key.webp" aria-label="Pull-out Key simulation rollout">
           <source src="sim-pull-out-key.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Pull-out Key</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="pull-out-key" data-task="Pull-out Key" aria-label="Pull-out Key sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="additional">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-hole.webp" aria-label="Insert Hole simulation rollout">
           <source src="sim-insert-hole.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Insert Hole</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-hole" data-task="Insert Hole" aria-label="Insert Hole sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="additional">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-grasp-classify.webp" aria-label="Grasp Classify simulation rollout">
           <source src="sim-grasp-classify.mp4" type="video/mp4">
         </video></div>
         <figcaption><strong>Grasp Classify</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="grasp-classify" data-task="Grasp Classify" aria-label="Grasp Classify sensor views">Sensor views</button></figcaption>
       </figure>
-      <figure class="clip sim-clip" data-task-group="additional">
+      <figure class="clip sim-clip">
         <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-hdmi.webp" aria-label="Insert HDMI simulation rollout">
           <source src="sim-insert-hdmi.mp4" type="video/mp4">
         </video></div>

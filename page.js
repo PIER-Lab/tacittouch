@@ -1,34 +1,21 @@
 const videos = [...document.querySelectorAll('video')];
 const reel = document.querySelector('#hero-video');
-const reelToggle = document.querySelector('.reel-toggle');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let reelEnabled = !reducedMotion.matches && !navigator.connection?.saveData;
+let reelVisible = false;
 
-function playReel() {
-  reel.play().catch(() => {});
-}
-
-reelToggle.hidden = false;
-reelToggle.addEventListener('click', () => {
-  reelEnabled = reel.paused;
-  if (reelEnabled) playReel();
-  else reel.pause();
-});
-for (const event of ['play', 'pause']) {
-  reel.addEventListener(event, () => {
-    reelToggle.textContent = reel.paused ? 'Play reel' : 'Pause reel';
-  });
-}
-new IntersectionObserver(([entry]) => {
-  if (entry.intersectionRatio >= 0.2 && reelEnabled) playReel();
-  else reel.pause();
-}, { threshold: 0.2 }).observe(reel);
-reducedMotion.addEventListener('change', () => {
-  if (reducedMotion.matches) {
-    reelEnabled = false;
+function updateReelPlayback() {
+  if (reelVisible && !reducedMotion.matches && !navigator.connection?.saveData) {
+    reel.play().catch(() => {});
+  } else {
     reel.pause();
   }
-});
+}
+
+new IntersectionObserver(([entry]) => {
+  reelVisible = entry.intersectionRatio >= 0.2;
+  updateReelPlayback();
+}, { threshold: 0.2 }).observe(reel);
+reducedMotion.addEventListener('change', updateReelPlayback);
 
 document.addEventListener('play', event => {
   if (!(event.target instanceof HTMLVideoElement) || event.target === reel) return;
@@ -49,19 +36,6 @@ for (const choice of rolloutButtons) {
         for (const video of panel.querySelectorAll('video')) video.pause();
       }
     }
-  });
-}
-
-const groupButtons = [...document.querySelectorAll('[data-group]')];
-const simulationCards = [...document.querySelectorAll('[data-task-group]')];
-for (const button of groupButtons) {
-  button.addEventListener('click', () => {
-    const group = button.dataset.group;
-    for (const card of simulationCards) {
-      card.hidden = group !== 'all' && card.dataset.taskGroup !== group;
-      if (card.hidden) card.querySelector('video').pause();
-    }
-    for (const option of groupButtons) option.setAttribute('aria-pressed', String(option === button));
   });
 }
 
