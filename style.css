@@ -115,7 +115,7 @@ h2 {
 h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; letter-spacing: -.038em; }
 .subhead { display: flex; align-items: end; justify-content: space-between; margin: 0 0 18px; }
 .subhead p { color: var(--subtle); margin-top: 7px; }
-.ruled { margin-top: clamp(28px, 4.5vw, 56px); padding-top: 27px; border-top: 1px solid var(--rule); }
+.rollout-switcher { margin-bottom: clamp(18px, 2.6vw, 36px); }
 .clip-grid { display: grid; gap: clamp(12px, 1.7vw, 24px); }
 .triple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -127,15 +127,15 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
   display: flex; align-items: baseline; justify-content: space-between; gap: 6px 12px;
   flex-wrap: wrap; margin-top: 10px; line-height: 1.35;
 }
-.clip figcaption strong, .pending h4 { font-size: 1rem; font-weight: 660; }
-.clip figcaption span, .text-button, .pending p { font-size: .88rem; color: var(--subtle); }
-.pending h4 { margin-top: 10px; line-height: 1.35; }
-.pending p { margin-top: 3px; }
+.clip figcaption strong { font-size: 1rem; font-weight: 660; }
+.clip figcaption span, .text-button { font-size: .88rem; color: var(--subtle); }
 .pending-media { position: relative; }
 .pending-media span {
   position: absolute; left: 9px; bottom: 9px; padding: 3px 8px; color: white; background: #102b32e8;
   border-radius: 5px; font-size: .8rem; line-height: 1.4; font-weight: 640;
 }
+.pending-empty { display: grid; place-items: center; border: 1px dashed #a8bcb3; background: #e4eeea; }
+.pending-empty span { position: static; padding: 0; background: none; color: var(--subtle); font-size: .88rem; }
 .disclosure { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 14px; }
 .disclosure summary { cursor: pointer; width: fit-content; color: var(--teal); font-weight: 630; }
 .disclosure[open] summary { margin-bottom: 17px; }

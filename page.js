@@ -37,6 +37,21 @@ document.addEventListener('play', event => {
   }
 }, true);
 
+const rolloutButtons = document.querySelectorAll('[data-rollout-choice]');
+for (const choice of rolloutButtons) {
+  choice.addEventListener('click', () => {
+    for (const button of rolloutButtons) {
+      const selected = button === choice;
+      const panel = document.getElementById(button.getAttribute('aria-controls'));
+      button.setAttribute('aria-pressed', String(selected));
+      panel.hidden = !selected;
+      if (panel.hidden) {
+        for (const video of panel.querySelectorAll('video')) video.pause();
+      }
+    }
+  });
+}
+
 const groupButtons = [...document.querySelectorAll('[data-group]')];
 const simulationCards = [...document.querySelectorAll('[data-task-group]')];
 for (const button of groupButtons) {

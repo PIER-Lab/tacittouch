@@ -8,8 +8,8 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=contact-grid">
-  <script src="page.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=rollout-tasks">
+  <script src="page.js?v=rollout-tasks" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#content">Skip to content</a>
@@ -65,58 +65,140 @@
         <h2 id="rollouts-title">Real-world manipulation</h2>
         <p>TacitTouch performs four contact-rich tasks on the Franka FR3.</p>
       </div>
-      <div class="subhead">
-        <div><h3>Spotlight: Ball Sorting</h3><p>Three views of the same autonomous blue-bowl rollout, played at recorded speed.</p></div>
+      <div class="segmented rollout-switcher" role="group" aria-label="Real-world task">
+        <button type="button" data-rollout-choice aria-pressed="true" aria-controls="rollout-ball">Ball Sorting</button>
+        <button type="button" data-rollout-choice aria-pressed="false" aria-controls="rollout-usb">Insert USB</button>
+        <button type="button" data-rollout-choice aria-pressed="false" aria-controls="rollout-wipe">Wipe Board</button>
+        <button type="button" data-rollout-choice aria-pressed="false" aria-controls="rollout-chip">Chip Moving</button>
       </div>
-      <div class="clip-grid triple">
-        <figure class="clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-blue.webp" aria-label="Ball Sorting — Overhead view">
-          <source src="real-ball-blue.mp4?cut=2s" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Overhead view</strong><span>Blue bowl</span></figcaption>
-      </figure>
-        <figure class="clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-side.webp" aria-label="Ball Sorting — Side view">
-          <source src="real-ball-side.mp4?cut=2s" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Side view</strong><span>Same rollout</span></figcaption>
-      </figure>
-        <figure class="clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-wrist.webp" aria-label="Ball Sorting — Wrist view">
-          <source src="real-ball-wrist.mp4?cut=2s" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Wrist view</strong><span>Same rollout</span></figcaption>
-      </figure>
-      </div>
-      <div class="subhead ruled">
-        <div><h3>More real-world tasks</h3><p>Teleoperated demonstration frames show the tasks awaiting new autonomous rollout clips.</p></div>
-      </div>
-      <div class="clip-grid four">
-        <article class="pending" data-video-slot="real-ball-pink">
-        <div class="pending-media"><img src="real-ball-pink.webp" alt="Ball Sorting · Pink bowl demonstration frame" loading="lazy">
-          <span>New rollout pending</span>
+
+      <section id="rollout-ball" aria-labelledby="rollout-ball-title">
+        <div class="subhead">
+          <div><h3 id="rollout-ball-title">Blue-bowl rollout</h3><p>Three views of the same autonomous ball-sorting rollout, played at recorded speed.</p></div>
         </div>
-        <h4>Ball Sorting · Pink bowl</h4><p>Sort the rough ball by texture.</p>
-      </article>
-        <article class="pending" data-video-slot="real-usb">
-        <div class="pending-media"><img src="real-usb.webp" alt="Insert USB demonstration frame" loading="lazy">
-          <span>New rollout pending</span>
+        <div class="clip-grid triple">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-blue.webp" aria-label="Ball Sorting — Overhead view">
+              <source src="real-ball-blue.mp4?cut=2s" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Overhead view</strong><span>Blue bowl</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-side.webp" aria-label="Ball Sorting — Side view">
+              <source src="real-ball-side.mp4?cut=2s" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Side view</strong><span>Same rollout</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="real-ball-wrist.webp" aria-label="Ball Sorting — Wrist view">
+              <source src="real-ball-wrist.mp4?cut=2s" type="video/mp4">
+            </video></div>
+            <figcaption><strong>Wrist view</strong><span>Same rollout</span></figcaption>
+          </figure>
         </div>
-        <h4>Insert USB</h4><p>Grasp, align and insert the plug.</p>
-      </article>
-        <article class="pending" data-video-slot="real-wipe">
-        <div class="pending-media"><img src="real-wipe.webp" alt="Wipe Board demonstration frame" loading="lazy">
-          <span>New rollout pending</span>
+        <details class="disclosure">
+          <summary>Pink-bowl rollout</summary>
+          <div class="clip-grid triple">
+            <figure class="clip" data-video-slot="real-ball-pink-overhead">
+              <div class="pending-media pending-empty">
+                <span>Rollout video pending</span>
+              </div>
+              <figcaption><strong>Overhead view</strong></figcaption>
+            </figure>
+            <figure class="clip" data-video-slot="real-ball-pink-side">
+              <div class="pending-media pending-empty">
+                <span>Rollout video pending</span>
+              </div>
+              <figcaption><strong>Side view</strong></figcaption>
+            </figure>
+            <figure class="clip" data-video-slot="real-ball-pink">
+              <div class="pending-media">
+                <img src="real-ball-pink.webp" alt="Ball Sorting, pink bowl wrist-camera demonstration frame" loading="lazy">
+                <span>Rollout video pending</span>
+              </div>
+              <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
+        <div class="subhead">
+          <div><h3 id="rollout-usb-title">Insert USB</h3><p>Grasp, align and insert the plug.</p></div>
         </div>
-        <h4>Wipe Board</h4><p>Pick up the eraser and clear the marks.</p>
-      </article>
-        <article class="pending" data-video-slot="real-chip">
-        <div class="pending-media"><img src="real-chip.webp" alt="Chip Moving demonstration frame" loading="lazy">
-          <span>New rollout pending</span>
+        <div class="clip-grid triple">
+          <figure class="clip" data-video-slot="real-usb-overhead">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Overhead view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-usb-side">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Side view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-usb">
+            <div class="pending-media">
+              <img src="real-usb.webp" alt="Insert USB wrist-camera demonstration frame" loading="lazy">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          </figure>
         </div>
-        <h4>Chip Moving</h4><p>Transfer the chip and release it intact.</p>
-      </article>
-      </div>
+      </section>
+      <section id="rollout-wipe" aria-labelledby="rollout-wipe-title" hidden>
+        <div class="subhead">
+          <div><h3 id="rollout-wipe-title">Wipe Board</h3><p>Pick up the eraser and clear the marks.</p></div>
+        </div>
+        <div class="clip-grid triple">
+          <figure class="clip" data-video-slot="real-wipe-overhead">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Overhead view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-wipe-side">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Side view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-wipe">
+            <div class="pending-media">
+              <img src="real-wipe.webp" alt="Wipe Board wrist-camera demonstration frame" loading="lazy">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          </figure>
+        </div>
+      </section>
+      <section id="rollout-chip" aria-labelledby="rollout-chip-title" hidden>
+        <div class="subhead">
+          <div><h3 id="rollout-chip-title">Chip Moving</h3><p>Transfer the chip and release it intact.</p></div>
+        </div>
+        <div class="clip-grid triple">
+          <figure class="clip" data-video-slot="real-chip-overhead">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Overhead view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-chip-side">
+            <div class="pending-media pending-empty">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Side view</strong></figcaption>
+          </figure>
+          <figure class="clip" data-video-slot="real-chip">
+            <div class="pending-media">
+              <img src="real-chip.webp" alt="Chip Moving wrist-camera demonstration frame" loading="lazy">
+              <span>Rollout video pending</span>
+            </div>
+            <figcaption><strong>Wrist view</strong><span>Demonstration frame</span></figcaption>
+          </figure>
+        </div>
+      </section>
       <figure class="scorecard">
         <figcaption>Mean success rate across the four real-world tasks</figcaption>
         <dl class="bars">
