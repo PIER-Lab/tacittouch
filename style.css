@@ -118,7 +118,6 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .ruled { margin-top: clamp(28px, 4.5vw, 56px); padding-top: 27px; border-top: 1px solid var(--rule); }
 .clip-grid { display: grid; gap: clamp(12px, 1.7vw, 24px); }
 .triple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.twin { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .video-frame, .pending-media { border-radius: var(--radius); overflow: hidden; background: #112b30; aspect-ratio: 16 / 9; }
 .video-frame video, .pending-media img { display: block; width: 100%; height: 100%; }
@@ -140,7 +139,6 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .disclosure { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 14px; }
 .disclosure summary { cursor: pointer; width: fit-content; color: var(--teal); font-weight: 630; }
 .disclosure[open] summary { margin-bottom: 17px; }
-.disclosure .twin { max-width: 950px; }
 
 .scorecard {
   margin-top: clamp(30px, 4.8vw, 62px);
@@ -251,7 +249,7 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .metrics > p { grid-column: 1 / -1; }
   .metrics > div:nth-child(2) { padding-left: 0; border-left: 0; }
   .metrics span { font-size: .88rem; }
-  .triple, .twin, .method-grid, .paper-grid, .citation { grid-template-columns: 1fr; }
+  .triple, .method-grid, .paper-grid, .citation { grid-template-columns: 1fr; }
   .clip-grid { row-gap: 19px; }
   .bars b, .bars dt { font-size: .83rem; }
   .bars dd { gap: 7px; grid-template-columns: minmax(0, 1fr) 3.65rem; }
