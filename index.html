@@ -8,7 +8,7 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=rollout-camera-layout">
+  <link rel="stylesheet" href="style.css?v=paper-overview">
   <script src="page.js?v=rollout-tasks" defer></script>
 </head>
 <body id="top">
@@ -43,14 +43,25 @@
   </section>
 
   <section class="wrap section overview" id="overview" aria-labelledby="overview-title">
-    <div class="section-intro">
-      <h2 id="overview-title">Overview</h2>
-      <p>A visuotactile teacher guides a visual student through contact-rich manipulation during training. TacitTouch transfers that behavior into the student’s action predictions. The deployed policy uses camera images, robot state and task instructions.</p>
-    </div>
-    <div class="authors">
-      <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
-      <p><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
-      <p class="author-notes">* Equal contribution. † Corresponding author.</p>
+    <div class="overview-story">
+      <div class="overview-copy">
+        <div class="section-intro">
+          <h2 id="overview-title">Overview</h2>
+          <p>A USB plug can look aligned while its tip presses against the rim of the socket. Fingertip sensors reveal interactions like this during demonstrations, giving the teacher information it can use to choose an action.</p>
+          <p>TacImag predicts tactile observations during inference and passes them to its policy. TacitTouch transfers the teacher’s guidance during training. The deployed student then acts from camera images, robot state and the task instruction.</p>
+        </div>
+        <div class="authors">
+          <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
+          <p><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
+          <p class="author-notes">* Equal contribution. † Corresponding author.</p>
+        </div>
+      </div>
+      <figure class="paper-figure" id="figure-1">
+        <a href="results.webp" data-figure aria-label="Enlarge Figure 1, imagination versus distillation">
+          <img src="results.webp" width="2240" height="1688" alt="Comparison of tactile imagination and distillation alongside a radar plot of task success rates" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 1. Imagination versus distillation.</strong> The radar plot compares success rates across four UniVTAC tasks and four real-world tasks.</figcaption>
+      </figure>
     </div>
     <div class="metrics" aria-label="TacitTouch gains over the vision-only baseline">
       <p>Mean success-rate gain<br><span>over vision-only π<sub>0.5</sub></span></p>
@@ -63,7 +74,7 @@
     <div class="wrap section">
       <div class="section-intro">
         <h2 id="rollouts-title">Real-world manipulation</h2>
-        <p>TacitTouch performs four contact-rich tasks on the Franka FR3. Each rollout includes three camera views and both GelSight recordings.</p>
+        <p>The four Franka FR3 tasks require different contact decisions. Ball Sorting depends on surface texture, Insert USB on connector alignment, Wipe Board on keeping the eraser against the board, and Chip Moving on transferring a fragile object intact.</p>
       </div>
       <div class="segmented rollout-switcher" role="group" aria-label="Real-world task">
         <button type="button" data-rollout-choice aria-pressed="true" aria-controls="rollout-ball">Ball Sorting</button>
@@ -299,13 +310,14 @@
           </div>
         </dl>
       </figure>
+      <p class="section-analysis">Chip Moving saw the largest gain over vision-only control, with success rising from 55% to 100%. On Insert USB, the hardest of the four physical tasks, TacitTouch matched the measured-touch teacher at 25%. These rates come from 20 rollouts per method and task.</p>
     </div>
   </section>
 
   <section class="wrap section" id="simulation" aria-labelledby="simulation-title">
     <div class="section-intro">
       <h2 id="simulation-title">Simulation</h2>
-      <p>Successful evaluation episodes from eight UniVTAC tasks. Open the sensor views to inspect the synchronized cameras and tactile readings.</p>
+      <p>Four UniVTAC tasks make up the main benchmark. The four additional tasks probe transfer to other interactions, including key extraction and hole insertion. Open a sensor view to follow its camera streams and tactile readings together.</p>
     </div>
     <div class="gallery-heading">
       <h3>UniVTAC rollouts</h3>
@@ -382,13 +394,14 @@
           </div>
         </dl>
       </figure>
+    <p class="section-analysis">Lift Can and Insert Tube contributed the largest gains over the vision-only π<sub>0.5</sub> baseline. Success rose from 59% to 85% on Lift Can and from 64% to 92% on Insert Tube.</p>
   </section>
 
   <section class="contact-band" id="contact" aria-labelledby="contact-title">
     <div class="wrap section">
       <div class="section-intro">
         <h2 id="contact-title">Contact visualization</h2>
-        <p>Wrist RGB and left and right GelSight images, paired in time from teleoperated demonstrations.</p>
+        <p>Each teleoperated demonstration pairs wrist RGB with left and right GelSight recordings. In Ball Sorting, the wrist camera follows the approach to the ball, while the GelSight streams show the contact patches forming at grasp. The teacher learns from both the visible scene and local contact.</p>
       </div>
       <div class="clip-grid contact-stage">
         <figure id="contact-ball">
@@ -439,7 +452,7 @@
   <section class="wrap section" id="method" aria-labelledby="method-title">
     <div class="section-intro">
       <h2 id="method-title">Method and hardware</h2>
-      <p>The teacher provides action and feature supervision alongside demonstrated actions. At deployment, the student runs on its own.</p>
+      <p>The frozen SimpleTouch teacher receives the same camera images, robot state and instruction as the student, plus measured touch. Both evaluate the same noisy action at the same point in denoising. The student learns to match the teacher’s action update and the intermediate features that produce it. A separate loss trains the student on demonstrated actions.</p>
     </div>
     <div class="paper-grid method-grid">
       <figure class="paper-figure">
@@ -455,28 +468,23 @@
         <figcaption>Franka platform and sensing hardware</figcaption>
       </figure>
     </div>
-    <details class="disclosure full-results">
-      <summary>View the full results overview</summary>
-      <figure class="paper-figure">
-        <a href="results.webp" data-figure aria-label="Enlarge Task success and tactile supervision">
-          <img src="results.webp" alt="TacitTouch design and comparative task success rates" loading="lazy">
-        </a>
-        <figcaption>Task success and tactile supervision</figcaption>
-      </figure>
-    </details>
+    <div class="section-analysis">
+      <p>Removing feature supervision while retaining action distillation and demonstrated-action supervision lowered mean success from 77.5% to 65.0% across the four main simulation tasks. Matching the teacher’s intermediate representations contributed beyond matching its action updates in this ablation.</p>
+      <p>In the timing benchmark, the deployed policy averaged 0.337 seconds per call. Its mean latency was 25.8% lower than TacImag’s.</p>
+    </div>
   </section>
 
   <section class="band" id="robustness" aria-labelledby="robustness-title">
     <div class="wrap section">
       <div class="section-intro">
         <h2 id="robustness-title">Visual robustness</h2>
-        <p>Selected matched TacImag and TacitTouch rollouts under dimmed inputs and shifted camera viewpoints.</p>
+        <p>The brightness test halves the camera RGB values before preprocessing. A second test shifts the simulated camera viewpoints. With dimmed input on the real robot, TacitTouch averaged 66.25% success compared with 46.25% for TacImag. Under shifted viewpoints in UniVTAC, their means were 58.5% and 43.3%, respectively.</p>
       </div>
       <figure class="paper-figure">
         <a href="robustness.webp" data-figure aria-label="Enlarge Matched examples under two visual perturbations">
           <img src="robustness.webp" alt="Matched TacImag and TacitTouch trajectories under dimmed camera input and shifted viewpoints" loading="lazy">
         </a>
-        <figcaption>Matched examples under two visual perturbations</figcaption>
+        <figcaption>Matched Lift Bottle examples under dimmed inputs and Insert Tube examples under shifted viewpoints. The brightness change is applied to policy inputs. Displayed frames retain their recorded brightness.</figcaption>
       </figure>
     </div>
   </section>

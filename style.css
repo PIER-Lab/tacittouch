@@ -94,7 +94,15 @@ h2 {
 }
 .section-intro p { margin-top: 15px; max-width: 74ch; color: var(--subtle); font-size: clamp(1rem, 1.9vw, 1.19rem); }
 .band { background: var(--band); }
+.overview-story {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
 .overview .section-intro { margin-bottom: 24px; }
+.section-analysis { max-width: 76ch; margin-top: clamp(17px, 2.5vw, 30px); color: var(--subtle); }
+.section-analysis p + p { margin-top: .75em; }
 .authors { max-width: 970px; color: var(--subtle); }
 .authors p:first-child { color: var(--ink); font-weight: 550; }
 .authors p + p { margin-top: 4px; }
@@ -193,7 +201,6 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .paper-figure a { padding: clamp(9px, 1.5vw, 20px); display: block; cursor: zoom-in; }
 .paper-figure a:focus-visible { outline-offset: -4px; }
 .paper-figure figcaption { border-top: 1px solid var(--rule); padding: 10px 14px; font-size: .9rem; color: var(--subtle); }
-.full-results { margin-top: 29px; }
 
 .citation { display: grid; grid-template-columns: minmax(175px, .34fr) minmax(0, 1fr); gap: clamp(18px, 5vw, 56px); align-items: start; }
 .citation .section-intro { margin-bottom: 0; }
@@ -227,6 +234,12 @@ dialog img { max-height: 72svh; object-fit: contain; }
 
 @media (max-width: 1010px) {
   .four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .overview-story { grid-template-columns: minmax(0, 1fr); }
+  .overview-copy { display: contents; }
+  .overview .section-intro { margin-bottom: 0; }
+  .overview-story .authors { grid-row: 3; }
 }
 @media (max-width: 760px) {
   .rollout-views { grid-template-columns: minmax(0, 1fr); }
