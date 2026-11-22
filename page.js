@@ -201,6 +201,63 @@ for (const disclosure of document.querySelectorAll('details')) {
   });
 }
 
+// Use the results table for both the accessible values and the chart.
+for (const card of document.querySelectorAll('.scorecard')) {
+  const table = card.querySelector('table');
+  const chart = card.querySelector('.score-chart');
+  const caption = document.createElement('figcaption');
+  caption.textContent = table.caption.textContent;
+
+  const legend = document.createElement('ul');
+  legend.className = 'score-legend';
+  for (const header of [...table.tHead.rows[0].cells].slice(1)) {
+    const entry = document.createElement('li');
+    entry.append(...[...header.childNodes].map(node => node.cloneNode(true)));
+    legend.append(entry);
+  }
+
+  const plot = document.createElement('div');
+  plot.className = 'score-plot';
+  const axis = document.createElement('div');
+  axis.className = 'score-axis';
+  for (const rate of [100, 75, 50, 25, 0]) {
+    const tick = document.createElement('span');
+    tick.textContent = rate;
+    axis.append(tick);
+  }
+
+  const groups = document.createElement('div');
+  groups.className = 'score-groups';
+  for (const row of table.tBodies[0].rows) {
+    const [task, ...scores] = row.cells;
+    const group = document.createElement('div');
+    group.className = 'score-group';
+    const bars = document.createElement('div');
+    bars.className = 'score-bars';
+    scores.forEach((score, index) => {
+      const rate = score.textContent.trim();
+      const bar = document.createElement('div');
+      bar.className = 'score-bar';
+      bar.style.setProperty('--rate', rate + '%');
+      bar.title = task.textContent + ' · ' + legend.children[index].textContent + ' · ' + rate + '%';
+      const value = document.createElement('span');
+      value.textContent = rate;
+      bar.append(value);
+      bars.append(bar);
+    });
+    const label = document.createElement('div');
+    label.className = 'score-task';
+    label.textContent = task.textContent;
+    group.append(bars, label);
+    groups.append(group);
+  }
+
+  plot.append(axis, groups);
+  chart.append(caption, legend, plot);
+  chart.hidden = false;
+  card.querySelector('.score-details').open = false;
+}
+
 const figures = document.querySelector('#figure-dialog');
 const enlarged = figures.querySelector('img');
 for (const anchor of document.querySelectorAll('[data-figure]')) {
@@ -216,12 +273,17 @@ for (const anchor of document.querySelectorAll('[data-figure]')) {
 const sensors = document.querySelector('#sensor-dialog');
 const sensorVideo = sensors.querySelector('video');
 const sensorTitle = sensors.querySelector('h3');
+const sensorDescription = sensors.querySelector('#sensor-description');
 for (const button of document.querySelectorAll('[data-sensors]')) {
   button.addEventListener('click', () => {
+    const task = button.closest('.sim-task');
+    const title = task.querySelector('h4').textContent;
+    const inputNotes = task.querySelector('.sim-inputs').children;
     const file = 'sim-' + button.dataset.sensors + '-sensors';
-    sensorTitle.textContent = button.dataset.task + ' — sensor views';
-    sensorVideo.poster = file + '.webp';
-    sensorVideo.src = file + '.mp4';
+    sensorTitle.textContent = title + ' — sensor views';
+    sensorDescription.replaceChildren(...[...inputNotes].map(note => note.cloneNode(true)));
+    sensorVideo.poster = file + '.webp?v=source-ratios';
+    sensorVideo.src = file + '.mp4?v=source-ratios';
     activeRollout?.pause();
     pauseOtherVideos();
     sensors.showModal();

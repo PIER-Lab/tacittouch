@@ -8,8 +8,8 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp?v=real-world">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=rollout-player">
-  <script src="page.js?v=rollout-player" defer></script>
+  <link rel="stylesheet" href="style.css?v=task-comparisons">
+  <script src="page.js?v=task-comparisons" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#content">Skip to content</a>
@@ -69,7 +69,7 @@
     <div class="wrap section">
       <div class="section-intro">
         <h2 id="rollouts-title">Real-world manipulation</h2>
-        <p>The four Franka FR3 tasks require different contact decisions. Ball Sorting depends on surface texture, Insert USB on connector alignment, Wipe Board on keeping the eraser against the board, and Chip Moving on transferring a fragile object intact.</p>
+        <p>The four Franka FR3 tasks require different contact decisions. Ball Sorting depends on surface texture, Insert USB on connector alignment, Wipe Board on keeping the eraser against the board, and Chip Moving on transferring a fragile object intact. The TacitTouch clips show successful rollouts.</p>
       </div>
       <div class="segmented rollout-switcher" role="group" aria-label="Real-world task">
         <button type="button" data-rollout-choice aria-pressed="true" aria-controls="rollout-ball">Ball Sorting</button>
@@ -123,7 +123,7 @@
                   <figcaption><strong>Right GelSight</strong></figcaption>
                 </figure>
               </div>
-              <p class="rollout-note" id="ball-blue-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              <p class="rollout-note" id="ball-blue-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
             </div>
           </div>
         </div>
@@ -172,11 +172,18 @@
                     <figcaption><strong>Right GelSight</strong></figcaption>
                   </figure>
                 </div>
-                <p class="rollout-note" id="ball-pink-bowl-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+                <p class="rollout-note" id="ball-pink-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
               </div>
             </div>
           </div>
         </section>
+        <aside class="rollout-comparison" aria-labelledby="comparison-ball-title">
+          <div class="comparison-copy">
+            <h4 id="comparison-ball-title">π<sub>0.5</sub> vision-only baseline</h4>
+            <p>Wrist RGB, robot state and task instruction. No tactile input.</p>
+          </div>
+          <div class="comparison-slot" aria-label="Ball Sorting baseline failure video pending">Failure video pending</div>
+        </aside>
       </section>
       <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
         <h3 class="subhead" id="rollout-usb-title">Insert USB</h3>
@@ -223,10 +230,17 @@
                   <figcaption><strong>Right GelSight</strong></figcaption>
                 </figure>
               </div>
-              <p class="rollout-note" id="insert-usb-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              <p class="rollout-note" id="insert-usb-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
             </div>
           </div>
         </div>
+        <aside class="rollout-comparison" aria-labelledby="comparison-usb-title">
+          <div class="comparison-copy">
+            <h4 id="comparison-usb-title">π<sub>0.5</sub> vision-only baseline</h4>
+            <p>Wrist RGB, robot state and task instruction. No tactile input.</p>
+          </div>
+          <div class="comparison-slot" aria-label="Insert USB baseline failure video pending">Failure video pending</div>
+        </aside>
       </section>
       <section id="rollout-wipe" aria-labelledby="rollout-wipe-title" hidden>
         <h3 class="subhead" id="rollout-wipe-title">Wipe Board</h3>
@@ -273,10 +287,17 @@
                   <figcaption><strong>Right GelSight</strong></figcaption>
                 </figure>
               </div>
-              <p class="rollout-note" id="wipe-board-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              <p class="rollout-note" id="wipe-board-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
             </div>
           </div>
         </div>
+        <aside class="rollout-comparison" aria-labelledby="comparison-wipe-title">
+          <div class="comparison-copy">
+            <h4 id="comparison-wipe-title">π<sub>0.5</sub> vision-only baseline</h4>
+            <p>Wrist RGB, robot state and task instruction. No tactile input.</p>
+          </div>
+          <div class="comparison-slot" aria-label="Wipe Board baseline failure video pending">Failure video pending</div>
+        </aside>
       </section>
       <section id="rollout-chip" aria-labelledby="rollout-chip-title" hidden>
         <h3 class="subhead" id="rollout-chip-title">Chip Moving</h3>
@@ -323,29 +344,40 @@
                   <figcaption><strong>Right GelSight</strong></figcaption>
                 </figure>
               </div>
-              <p class="rollout-note" id="chip-moving-tactile-note">GelSight recordings are for visualization only. TacitTouch uses camera images, robot state and task instructions at deployment.</p>
+              <p class="rollout-note" id="chip-moving-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
             </div>
           </div>
         </div>
+        <aside class="rollout-comparison" aria-labelledby="comparison-chip-title">
+          <div class="comparison-copy">
+            <h4 id="comparison-chip-title">π<sub>0.5</sub> vision-only baseline</h4>
+            <p>Wrist RGB, robot state and task instruction. No tactile input.</p>
+          </div>
+          <div class="comparison-slot" aria-label="Chip Moving baseline failure video pending">Failure video pending</div>
+        </aside>
       </section>
       <div class="scorecard">
-        <div class="score-table-scroll" role="region" aria-label="Real-world task success" tabindex="0">
-          <table class="score-table">
-            <caption>Real-world task success (%)</caption>
-            <thead>
-              <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Ball Sorting</th><td>75</td><td>55</td><td>100</td><td class="score-tacit">80</td></tr>
-              <tr><th scope="row">Insert USB</th><td>5</td><td>15</td><td>25</td><td class="score-tacit">25</td></tr>
-              <tr><th scope="row">Wipe Board</th><td>65</td><td>75</td><td>90</td><td class="score-tacit">85</td></tr>
-              <tr><th scope="row">Chip Moving</th><td>55</td><td>75</td><td>90</td><td class="score-tacit">100</td></tr>
-            </tbody>
-            <tfoot>
-              <tr><th scope="row">Mean</th><td>50.00</td><td>55.00</td><td>76.25</td><td class="score-tacit">72.50</td></tr>
-            </tfoot>
-          </table>
-        </div>
+        <figure class="score-chart" aria-hidden="true" hidden></figure>
+        <details class="score-details" open>
+          <summary>Exact success rates and means</summary>
+          <div class="score-table-scroll" role="region" aria-label="Real-world task success" tabindex="0">
+            <table class="score-table">
+              <caption>Real-world task success (%)</caption>
+              <thead>
+                <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Ball Sorting</th><td>75</td><td>55</td><td>100</td><td class="score-tacit">80</td></tr>
+                <tr><th scope="row">Insert USB</th><td>5</td><td>15</td><td>25</td><td class="score-tacit">25</td></tr>
+                <tr><th scope="row">Wipe Board</th><td>65</td><td>75</td><td>90</td><td class="score-tacit">85</td></tr>
+                <tr><th scope="row">Chip Moving</th><td>55</td><td>75</td><td>90</td><td class="score-tacit">100</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th scope="row">Mean</th><td>50.00</td><td>55.00</td><td>76.25</td><td class="score-tacit">72.50</td></tr>
+              </tfoot>
+            </table>
+          </div>
+        </details>
       </div>
       <p class="section-analysis">Chip Moving saw the largest gain over vision-only control, with success rising from 55% to 100%. On Insert USB, the hardest of the four physical tasks, TacitTouch matched the measured-touch teacher at 25%. These rates come from 20 rollouts per method and task.</p>
     </div>
@@ -354,53 +386,133 @@
   <section class="wrap section" id="simulation" aria-labelledby="simulation-title">
     <div class="section-intro">
       <h2 id="simulation-title">Simulation</h2>
-      <p>The four main UniVTAC tasks test lifting, placement and insertion. Open a sensor view to follow the camera streams and tactile readings together.</p>
+      <p>Each policy uses the task’s camera inputs with robot state and a task instruction. The clips show separate evaluation rollouts. Open Sensor views to see the recorded streams from the TacitTouch rollout.</p>
     </div>
     <h3 class="subhead">UniVTAC rollouts</h3>
-    <div class="clip-grid four" id="simulation-grid">
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-bottle.webp" aria-label="Lift Bottle simulation rollout">
-          <source src="sim-lift-bottle.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Lift Bottle</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-bottle" data-task="Lift Bottle" aria-label="Lift Bottle sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-can.webp" aria-label="Lift Can simulation rollout">
-          <source src="sim-lift-can.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Lift Can</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-can" data-task="Lift Can" aria-label="Lift Can sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-put-bottle.webp" aria-label="Put Bottle simulation rollout">
-          <source src="sim-put-bottle.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Put Bottle</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="put-bottle" data-task="Put Bottle" aria-label="Put Bottle sensor views">Sensor views</button></figcaption>
-      </figure>
-      <figure class="clip sim-clip">
-        <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-tube.webp" aria-label="Insert Tube simulation rollout">
-          <source src="sim-insert-tube.mp4" type="video/mp4">
-        </video></div>
-        <figcaption><strong>Insert Tube</strong><button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-tube" data-task="Insert Tube" aria-label="Insert Tube sensor views">Sensor views</button></figcaption>
-      </figure>
+    <div class="clip-grid simulation-grid" id="simulation-grid">
+      <article class="sim-task" aria-labelledby="sim-lift-bottle-title">
+        <div class="sim-task-head">
+          <h4 id="sim-lift-bottle-title">Lift Bottle</h4>
+          <button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-bottle" aria-label="Lift Bottle sensor views">Sensor views</button>
+        </div>
+        <dl class="sim-inputs">
+          <div><dt>Policy image inputs</dt><dd>Head RGB</dd></div>
+          <div><dt>TacitTouch visualization only</dt><dd>Wrist RGB, left and right tactile</dd></div>
+        </dl>
+        <div class="sim-pair">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-bottle.webp" aria-label="Lift Bottle TacitTouch success">
+              <source src="sim-lift-bottle.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>TacitTouch</strong><span>Success</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video class="sim-failure" controls playsinline preload="none" poster="sim-lift-bottle-failure.webp" aria-label="Lift Bottle vision-only π₀.₅ failure example">
+              <source src="sim-lift-bottle-failure.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>π<sub>0.5</sub></strong><span>Failure example</span></figcaption>
+            <p class="comparison-input">Vision only</p>
+          </figure>
+        </div>
+      </article>
+      <article class="sim-task" aria-labelledby="sim-lift-can-title">
+        <div class="sim-task-head">
+          <h4 id="sim-lift-can-title">Lift Can</h4>
+          <button class="text-button" type="button" aria-haspopup="dialog" data-sensors="lift-can" aria-label="Lift Can sensor views">Sensor views</button>
+        </div>
+        <dl class="sim-inputs">
+          <div><dt>Policy image inputs</dt><dd>Head and wrist RGB</dd></div>
+          <div><dt>TacitTouch visualization only</dt><dd>Left and right tactile</dd></div>
+        </dl>
+        <div class="sim-pair">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="sim-lift-can.webp" aria-label="Lift Can TacitTouch success">
+              <source src="sim-lift-can.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>TacitTouch</strong><span>Success</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video class="sim-failure" controls playsinline preload="none" poster="sim-lift-can-failure.webp" aria-label="Lift Can vision-only π₀.₅ failure example">
+              <source src="sim-lift-can-failure.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>π<sub>0.5</sub></strong><span>Failure example</span></figcaption>
+            <p class="comparison-input">Vision only</p>
+          </figure>
+        </div>
+      </article>
+      <article class="sim-task" aria-labelledby="sim-put-bottle-title">
+        <div class="sim-task-head">
+          <h4 id="sim-put-bottle-title">Put Bottle</h4>
+          <button class="text-button" type="button" aria-haspopup="dialog" data-sensors="put-bottle" aria-label="Put Bottle sensor views">Sensor views</button>
+        </div>
+        <dl class="sim-inputs">
+          <div><dt>Policy image inputs</dt><dd>Head RGB</dd></div>
+          <div><dt>TacitTouch visualization only</dt><dd>Wrist RGB, left and right tactile</dd></div>
+        </dl>
+        <div class="sim-pair">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="sim-put-bottle.webp" aria-label="Put Bottle TacitTouch success">
+              <source src="sim-put-bottle.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>TacitTouch</strong><span>Success</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video class="sim-failure" controls playsinline preload="none" poster="sim-put-bottle-failure.webp" aria-label="Put Bottle vision-only π₀.₅ failure example">
+              <source src="sim-put-bottle-failure.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>π<sub>0.5</sub></strong><span>Failure example</span></figcaption>
+            <p class="comparison-input">Vision only</p>
+          </figure>
+        </div>
+      </article>
+      <article class="sim-task" aria-labelledby="sim-insert-tube-title">
+        <div class="sim-task-head">
+          <h4 id="sim-insert-tube-title">Insert Tube</h4>
+          <button class="text-button" type="button" aria-haspopup="dialog" data-sensors="insert-tube" aria-label="Insert Tube sensor views">Sensor views</button>
+        </div>
+        <dl class="sim-inputs">
+          <div><dt>Policy image inputs</dt><dd>Head and wrist RGB</dd></div>
+          <div><dt>TacitTouch visualization only</dt><dd>Left and right tactile</dd></div>
+        </dl>
+        <div class="sim-pair">
+          <figure class="clip">
+            <div class="video-frame"><video controls playsinline preload="none" poster="sim-insert-tube.webp" aria-label="Insert Tube TacitTouch success">
+              <source src="sim-insert-tube.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>TacitTouch</strong><span>Success</span></figcaption>
+          </figure>
+          <figure class="clip">
+            <div class="video-frame"><video class="sim-failure" controls playsinline preload="none" poster="sim-insert-tube-failure.webp" aria-label="Insert Tube TacImag failure example">
+              <source src="sim-insert-tube-failure.mp4" type="video/mp4">
+            </video></div>
+            <figcaption><strong>TacImag</strong><span>Failure example</span></figcaption>
+            <p class="comparison-input">Generated tactile RGB at inference</p>
+          </figure>
+        </div>
+      </article>
     </div>
     <div class="scorecard">
-      <div class="score-table-scroll" role="region" aria-label="UniVTAC task success" tabindex="0">
-        <table class="score-table">
-          <caption>UniVTAC task success (%)</caption>
-          <thead>
-            <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Lift Bottle</th><td>92</td><td>100</td><td>100</td><td class="score-tacit">96</td></tr>
-            <tr><th scope="row">Lift Can</th><td>59</td><td>63</td><td>68</td><td class="score-tacit">85</td></tr>
-            <tr><th scope="row">Put Bottle</th><td>31</td><td>45</td><td>50</td><td class="score-tacit">37</td></tr>
-            <tr><th scope="row">Insert Tube</th><td>64</td><td>87</td><td>100</td><td class="score-tacit">92</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><th scope="row">Mean</th><td>61.5</td><td>73.8</td><td>79.5</td><td class="score-tacit">77.5</td></tr>
-          </tfoot>
-        </table>
-      </div>
+      <figure class="score-chart" aria-hidden="true" hidden></figure>
+      <details class="score-details" open>
+        <summary>Exact success rates and means</summary>
+        <div class="score-table-scroll" role="region" aria-label="UniVTAC task success" tabindex="0">
+          <table class="score-table">
+            <caption>UniVTAC task success (%)</caption>
+            <thead>
+              <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Lift Bottle</th><td>92</td><td>100</td><td>100</td><td class="score-tacit">96</td></tr>
+              <tr><th scope="row">Lift Can</th><td>59</td><td>63</td><td>68</td><td class="score-tacit">85</td></tr>
+              <tr><th scope="row">Put Bottle</th><td>31</td><td>45</td><td>50</td><td class="score-tacit">37</td></tr>
+              <tr><th scope="row">Insert Tube</th><td>64</td><td>87</td><td>100</td><td class="score-tacit">92</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Mean</th><td>61.5</td><td>73.8</td><td>79.5</td><td class="score-tacit">77.5</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </details>
     </div>
     <p class="section-analysis">Lift Can and Insert Tube contributed the largest gains over the vision-only π<sub>0.5</sub> baseline. Success rose from 59% to 85% on Lift Can and from 64% to 92% on Insert Tube.</p>
   </section>
@@ -500,6 +612,7 @@
   <section class="wrap section citation" id="citation" aria-labelledby="citation-title">
     <div class="section-intro">
       <h2 id="citation-title">Citation</h2>
+      <p>arXiv identifier pending.</p>
       <button class="button copy" type="button" id="copy-citation">Copy BibTeX</button>
       <span id="copy-status" role="status"></span>
     </div>
@@ -509,7 +622,7 @@
             Wu, Changjie and Zhang, Hang and Li, Haoyu and Xu, Mu and
             Fan, Jiansheng and Wang, Chen},
   year   = {2026},
-  url    = {https://pier-lab.github.io/tacittouch/}
+  note   = {Submitted to arXiv}
 }</code></pre>
   </section>
 </main>
@@ -522,8 +635,9 @@
 </dialog>
 <dialog id="sensor-dialog" aria-labelledby="sensor-title">
   <div class="dialog-head"><h3 id="sensor-title"></h3><button class="dialog-close" type="button">Close</button></div>
-  <video controls playsinline preload="none" aria-describedby="sensor-description"></video>
-  <p id="sensor-description">Left tactile sensor · External camera · Wrist camera · Right tactile sensor</p>
+  <video controls playsinline preload="metadata" aria-describedby="sensor-layout sensor-description"></video>
+  <p class="sensor-description" id="sensor-layout">Head and wrist RGB on top, left and right tactile below.</p>
+  <dl class="sim-inputs" id="sensor-description"></dl>
 </dialog>
 </body>
 </html>
