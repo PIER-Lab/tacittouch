@@ -384,12 +384,55 @@
             </div>
           </div>
         </div>
-        <aside class="rollout-comparison" aria-labelledby="comparison-wipe-title">
-          <div class="comparison-copy">
-            <h4 id="comparison-wipe-title">π<sub>0.5</sub> vision-only baseline</h4>
-            <p>Wrist RGB, robot state and task instruction. No tactile input.</p>
+        <aside class="secondary-rollout" aria-labelledby="comparison-wipe-title">
+          <h3 class="subhead" id="comparison-wipe-title"><span>Vision-only π<sub>0.5</sub> · Failure example</span></h3>
+          <div class="rollout-player">
+            <div class="rollout-controls" hidden>
+              <button class="rollout-play" type="button">Play all views</button>
+              <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+              <span class="rollout-time" aria-hidden="true">0:00</span>
+            </div>
+            <p class="rollout-error" role="status" hidden></p>
+            <div class="rollout-views">
+              <figure class="clip">
+                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.126" poster="rollouts/wipe-board-pi05-failure/side.webp" aria-label="Wipe Board vision-only failure — Side view">
+                  <source src="rollouts/wipe-board-pi05-failure/side.mp4?v=trimmed-3s" type="video/mp4">
+                </video></div>
+                <figcaption><strong>Side view</strong></figcaption>
+              </figure>
+              <div class="rollout-details">
+                <div class="rollout-pair">
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.072" poster="rollouts/wipe-board-pi05-failure/overhead.webp" aria-label="Wipe Board vision-only failure — Overhead view">
+                      <source src="rollouts/wipe-board-pi05-failure/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Overhead view</strong></figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/wipe-board-pi05-failure/wrist.webp" aria-label="Wipe Board vision-only failure — Wrist view">
+                      <source src="rollouts/wipe-board-pi05-failure/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Wrist view</strong></figcaption>
+                  </figure>
+                </div>
+                <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="wipe-board-pi05-tactile-note">
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.136" poster="rollouts/wipe-board-pi05-failure/tactile-left.webp" aria-label="Wipe Board vision-only failure — Left GelSight">
+                      <source src="rollouts/wipe-board-pi05-failure/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Left GelSight</strong></figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.187" poster="rollouts/wipe-board-pi05-failure/tactile-right.webp" aria-label="Wipe Board vision-only failure — Right GelSight">
+                      <source src="rollouts/wipe-board-pi05-failure/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Right GelSight</strong></figcaption>
+                  </figure>
+                </div>
+                <p class="rollout-note" id="wipe-board-pi05-tactile-note"><strong>π<sub>0.5</sub> inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
+              </div>
+            </div>
           </div>
-          <div class="comparison-slot" aria-label="Wipe Board baseline failure video pending">Failure video pending</div>
         </aside>
       </section>
       <section id="rollout-chip" aria-labelledby="rollout-chip-title" hidden>
