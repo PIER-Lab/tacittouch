@@ -8,7 +8,7 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp?v=real-world">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=overview-layout">
+  <link rel="stylesheet" href="style.css?v=ball-comparisons">
   <script src="page.js?v=paper-categories" defer></script>
 </head>
 <body id="top">
@@ -89,205 +89,217 @@
         <button type="button" data-rollout-choice aria-pressed="false" aria-controls="rollout-chip">Chip Moving</button>
       </div>
 
-      <section id="rollout-ball" aria-labelledby="rollout-ball-title">
-        <h3 class="subhead" id="rollout-ball-title">Smooth-ball rollout</h3>
-        <div class="rollout-player">
-          <div class="rollout-controls" hidden>
-            <button class="rollout-play" type="button">Play all views</button>
-            <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
-            <span class="rollout-time" aria-hidden="true">0:00</span>
-          </div>
-          <p class="rollout-error" role="status" hidden></p>
-          <div class="rollout-views">
-            <figure class="clip">
-              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.100" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Smooth-ball rollout — Side view">
-                <source src="rollouts/ball-blue-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
-              </video></div>
-              <figcaption><strong>Side view</strong></figcaption>
-            </figure>
-            <div class="rollout-details">
-              <div class="rollout-pair">
-                <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Smooth-ball rollout — Overhead view">
-                    <source src="rollouts/ball-blue-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
-                  </video></div>
-                  <figcaption><strong>Overhead view</strong></figcaption>
-                </figure>
-                <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Smooth-ball rollout — Wrist view">
-                    <source src="rollouts/ball-blue-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
-                  </video></div>
-                  <figcaption><strong>Wrist view</strong></figcaption>
-                </figure>
-              </div>
-              <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-blue-bowl-tactile-note">
-                <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.137" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Smooth-ball rollout — Left GelSight">
-                    <source src="rollouts/ball-blue-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
-                  </video></div>
-                  <figcaption><strong>Left GelSight</strong></figcaption>
-                </figure>
-                <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.123" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Smooth-ball rollout — Right GelSight">
-                    <source src="rollouts/ball-blue-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
-                  </video></div>
-                  <figcaption><strong>Right GelSight</strong></figcaption>
-                </figure>
-              </div>
-              <p class="rollout-note" id="ball-blue-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
-            </div>
-          </div>
-        </div>
-        <aside class="secondary-rollout" aria-labelledby="comparison-ball-smooth-title">
-          <h3 class="subhead" id="comparison-ball-smooth-title"><span>Vision-only π<sub>0.5</sub> · Smooth-ball misclassification</span></h3>
-          <div class="rollout-player">
-            <div class="rollout-controls" hidden>
-              <button class="rollout-play" type="button">Play all views</button>
-              <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
-              <span class="rollout-time" aria-hidden="true">0:00</span>
-            </div>
-            <p class="rollout-error" role="status" hidden></p>
-            <div class="rollout-views">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.062" poster="rollouts/ball-smooth-pi05-failure/side.webp" aria-label="Smooth-ball vision-only failure — Side view">
-                  <source src="rollouts/ball-smooth-pi05-failure/side.mp4?v=trimmed-3s" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Side view</strong></figcaption>
-              </figure>
-              <div class="rollout-details">
-                <div class="rollout-pair">
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.128" poster="rollouts/ball-smooth-pi05-failure/overhead.webp" aria-label="Smooth-ball vision-only failure — Overhead view">
-                      <source src="rollouts/ball-smooth-pi05-failure/overhead.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Overhead view</strong></figcaption>
-                  </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-smooth-pi05-failure/wrist.webp" aria-label="Smooth-ball vision-only failure — Wrist view">
-                      <source src="rollouts/ball-smooth-pi05-failure/wrist.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Wrist view</strong></figcaption>
-                  </figure>
+      <section id="rollout-ball" aria-label="Ball Sorting">
+        <section class="ball-comparison" aria-labelledby="ball-smooth-comparison-title">
+          <h3 class="subhead" id="ball-smooth-comparison-title">Smooth ball</h3>
+          <div class="ball-comparison-grid">
+            <section class="ball-rollout ball-rollout--success" aria-labelledby="rollout-ball-title">
+              <h4 class="ball-rollout-title" id="rollout-ball-title"><span>TacitTouch</span> <span class="ball-result">Success</span></h4>
+              <div class="rollout-player">
+                <div class="rollout-controls" hidden>
+                  <button class="rollout-play" type="button">Play all views</button>
+                  <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+                  <span class="rollout-time" aria-hidden="true">0:00</span>
                 </div>
-                <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-smooth-pi05-tactile-note">
+                <p class="rollout-error" role="status" hidden></p>
+                <div class="rollout-views">
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.113" poster="rollouts/ball-smooth-pi05-failure/tactile-left.webp" aria-label="Smooth-ball vision-only failure — Left GelSight">
-                      <source src="rollouts/ball-smooth-pi05-failure/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.100" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Smooth-ball rollout — Side view">
+                      <source src="rollouts/ball-blue-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
-                    <figcaption><strong>Left GelSight</strong></figcaption>
+                    <figcaption><strong>Side view</strong></figcaption>
                   </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.180" poster="rollouts/ball-smooth-pi05-failure/tactile-right.webp" aria-label="Smooth-ball vision-only failure — Right GelSight">
-                      <source src="rollouts/ball-smooth-pi05-failure/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Right GelSight</strong></figcaption>
-                  </figure>
+                  <div class="rollout-details">
+                    <div class="rollout-pair">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Smooth-ball rollout — Overhead view">
+                          <source src="rollouts/ball-blue-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Overhead view</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Smooth-ball rollout — Wrist view">
+                          <source src="rollouts/ball-blue-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Wrist view</strong></figcaption>
+                      </figure>
+                    </div>
+                    <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-blue-bowl-tactile-note">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.137" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Smooth-ball rollout — Left GelSight">
+                          <source src="rollouts/ball-blue-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Left GelSight</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.123" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Smooth-ball rollout — Right GelSight">
+                          <source src="rollouts/ball-blue-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Right GelSight</strong></figcaption>
+                      </figure>
+                    </div>
+                    <p class="rollout-note" id="ball-blue-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
+                  </div>
                 </div>
-                <p class="rollout-note" id="ball-smooth-pi05-tactile-note"><strong>π<sub>0.5</sub> inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
               </div>
-            </div>
-          </div>
-        </aside>
-        <section class="secondary-rollout" aria-labelledby="rollout-pink-title">
-          <h3 class="subhead" id="rollout-pink-title">Rough-ball rollout</h3>
-          <div class="rollout-player">
-            <div class="rollout-controls" hidden>
-              <button class="rollout-play" type="button">Play all views</button>
-              <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
-              <span class="rollout-time" aria-hidden="true">0:00</span>
-            </div>
-            <p class="rollout-error" role="status" hidden></p>
-            <div class="rollout-views">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.060" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Rough-ball rollout — Side view">
-                  <source src="rollouts/ball-pink-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Side view</strong></figcaption>
-              </figure>
-              <div class="rollout-details">
-                <div class="rollout-pair">
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.066" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Rough-ball rollout — Overhead view">
-                      <source src="rollouts/ball-pink-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Overhead view</strong></figcaption>
-                  </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Rough-ball rollout — Wrist view">
-                      <source src="rollouts/ball-pink-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Wrist view</strong></figcaption>
-                  </figure>
+            </section>
+            <section class="ball-rollout ball-rollout--failure" aria-labelledby="comparison-ball-smooth-title">
+              <h4 class="ball-rollout-title" id="comparison-ball-smooth-title"><span>Vision-only π<sub>0.5</sub></span> <span class="ball-result">Failure</span></h4>
+              <div class="rollout-player">
+                <div class="rollout-controls" hidden>
+                  <button class="rollout-play" type="button">Play all views</button>
+                  <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+                  <span class="rollout-time" aria-hidden="true">0:00</span>
                 </div>
-                <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-pink-bowl-tactile-note">
+                <p class="rollout-error" role="status" hidden></p>
+                <div class="rollout-views">
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.193" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Rough-ball rollout — Left GelSight">
-                      <source src="rollouts/ball-pink-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.062" poster="rollouts/ball-smooth-pi05-failure/side.webp" aria-label="Smooth-ball vision-only failure — Side view">
+                      <source src="rollouts/ball-smooth-pi05-failure/side.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
-                    <figcaption><strong>Left GelSight</strong></figcaption>
+                    <figcaption><strong>Side view</strong></figcaption>
                   </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.164" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Rough-ball rollout — Right GelSight">
-                      <source src="rollouts/ball-pink-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Right GelSight</strong></figcaption>
-                  </figure>
+                  <div class="rollout-details">
+                    <div class="rollout-pair">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.128" poster="rollouts/ball-smooth-pi05-failure/overhead.webp" aria-label="Smooth-ball vision-only failure — Overhead view">
+                          <source src="rollouts/ball-smooth-pi05-failure/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Overhead view</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-smooth-pi05-failure/wrist.webp" aria-label="Smooth-ball vision-only failure — Wrist view">
+                          <source src="rollouts/ball-smooth-pi05-failure/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Wrist view</strong></figcaption>
+                      </figure>
+                    </div>
+                    <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-smooth-pi05-tactile-note">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.113" poster="rollouts/ball-smooth-pi05-failure/tactile-left.webp" aria-label="Smooth-ball vision-only failure — Left GelSight">
+                          <source src="rollouts/ball-smooth-pi05-failure/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Left GelSight</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.180" poster="rollouts/ball-smooth-pi05-failure/tactile-right.webp" aria-label="Smooth-ball vision-only failure — Right GelSight">
+                          <source src="rollouts/ball-smooth-pi05-failure/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Right GelSight</strong></figcaption>
+                      </figure>
+                    </div>
+                    <p class="rollout-note" id="ball-smooth-pi05-tactile-note"><strong>π<sub>0.5</sub> inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
+                  </div>
                 </div>
-                <p class="rollout-note" id="ball-pink-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
               </div>
-            </div>
+            </section>
           </div>
         </section>
-        <aside class="secondary-rollout" aria-labelledby="comparison-ball-rough-title">
-          <h3 class="subhead" id="comparison-ball-rough-title"><span>Vision-only π<sub>0.5</sub> · Rough-ball misclassification</span></h3>
-          <div class="rollout-player">
-            <div class="rollout-controls" hidden>
-              <button class="rollout-play" type="button">Play all views</button>
-              <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
-              <span class="rollout-time" aria-hidden="true">0:00</span>
-            </div>
-            <p class="rollout-error" role="status" hidden></p>
-            <div class="rollout-views">
-              <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.062" poster="rollouts/ball-rough-pi05-failure/side.webp" aria-label="Rough-ball vision-only failure — Side view">
-                  <source src="rollouts/ball-rough-pi05-failure/side.mp4?v=trimmed-3s" type="video/mp4">
-                </video></div>
-                <figcaption><strong>Side view</strong></figcaption>
-              </figure>
-              <div class="rollout-details">
-                <div class="rollout-pair">
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.131" poster="rollouts/ball-rough-pi05-failure/overhead.webp" aria-label="Rough-ball vision-only failure — Overhead view">
-                      <source src="rollouts/ball-rough-pi05-failure/overhead.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Overhead view</strong></figcaption>
-                  </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-rough-pi05-failure/wrist.webp" aria-label="Rough-ball vision-only failure — Wrist view">
-                      <source src="rollouts/ball-rough-pi05-failure/wrist.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Wrist view</strong></figcaption>
-                  </figure>
+        <section class="ball-comparison" aria-labelledby="ball-rough-comparison-title">
+          <h3 class="subhead" id="ball-rough-comparison-title">Rough ball</h3>
+          <div class="ball-comparison-grid">
+            <section class="ball-rollout ball-rollout--success" aria-labelledby="rollout-pink-title">
+              <h4 class="ball-rollout-title" id="rollout-pink-title"><span>TacitTouch</span> <span class="ball-result">Success</span></h4>
+              <div class="rollout-player">
+                <div class="rollout-controls" hidden>
+                  <button class="rollout-play" type="button">Play all views</button>
+                  <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+                  <span class="rollout-time" aria-hidden="true">0:00</span>
                 </div>
-                <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-rough-pi05-tactile-note">
+                <p class="rollout-error" role="status" hidden></p>
+                <div class="rollout-views">
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.094" poster="rollouts/ball-rough-pi05-failure/tactile-left.webp" aria-label="Rough-ball vision-only failure — Left GelSight">
-                      <source src="rollouts/ball-rough-pi05-failure/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.060" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Rough-ball rollout — Side view">
+                      <source src="rollouts/ball-pink-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
-                    <figcaption><strong>Left GelSight</strong></figcaption>
+                    <figcaption><strong>Side view</strong></figcaption>
                   </figure>
-                  <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.174" poster="rollouts/ball-rough-pi05-failure/tactile-right.webp" aria-label="Rough-ball vision-only failure — Right GelSight">
-                      <source src="rollouts/ball-rough-pi05-failure/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
-                    </video></div>
-                    <figcaption><strong>Right GelSight</strong></figcaption>
-                  </figure>
+                  <div class="rollout-details">
+                    <div class="rollout-pair">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.066" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Rough-ball rollout — Overhead view">
+                          <source src="rollouts/ball-pink-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Overhead view</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Rough-ball rollout — Wrist view">
+                          <source src="rollouts/ball-pink-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Wrist view</strong></figcaption>
+                      </figure>
+                    </div>
+                    <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-pink-bowl-tactile-note">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.193" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Rough-ball rollout — Left GelSight">
+                          <source src="rollouts/ball-pink-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Left GelSight</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.164" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Rough-ball rollout — Right GelSight">
+                          <source src="rollouts/ball-pink-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Right GelSight</strong></figcaption>
+                      </figure>
+                    </div>
+                    <p class="rollout-note" id="ball-pink-bowl-tactile-note"><strong>TacitTouch inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
+                  </div>
                 </div>
-                <p class="rollout-note" id="ball-rough-pi05-tactile-note"><strong>π<sub>0.5</sub> inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
               </div>
-            </div>
+            </section>
+            <section class="ball-rollout ball-rollout--failure" aria-labelledby="comparison-ball-rough-title">
+              <h4 class="ball-rollout-title" id="comparison-ball-rough-title"><span>Vision-only π<sub>0.5</sub></span> <span class="ball-result">Failure</span></h4>
+              <div class="rollout-player">
+                <div class="rollout-controls" hidden>
+                  <button class="rollout-play" type="button">Play all views</button>
+                  <input type="range" min="0" max="1" step="0.01" value="0" aria-label="Rollout timeline" disabled>
+                  <span class="rollout-time" aria-hidden="true">0:00</span>
+                </div>
+                <p class="rollout-error" role="status" hidden></p>
+                <div class="rollout-views">
+                  <figure class="clip">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.062" poster="rollouts/ball-rough-pi05-failure/side.webp" aria-label="Rough-ball vision-only failure — Side view">
+                      <source src="rollouts/ball-rough-pi05-failure/side.mp4?v=trimmed-3s" type="video/mp4">
+                    </video></div>
+                    <figcaption><strong>Side view</strong></figcaption>
+                  </figure>
+                  <div class="rollout-details">
+                    <div class="rollout-pair">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.131" poster="rollouts/ball-rough-pi05-failure/overhead.webp" aria-label="Rough-ball vision-only failure — Overhead view">
+                          <source src="rollouts/ball-rough-pi05-failure/overhead.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Overhead view</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-rough-pi05-failure/wrist.webp" aria-label="Rough-ball vision-only failure — Wrist view">
+                          <source src="rollouts/ball-rough-pi05-failure/wrist.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Wrist view</strong></figcaption>
+                      </figure>
+                    </div>
+                    <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-rough-pi05-tactile-note">
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.094" poster="rollouts/ball-rough-pi05-failure/tactile-left.webp" aria-label="Rough-ball vision-only failure — Left GelSight">
+                          <source src="rollouts/ball-rough-pi05-failure/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Left GelSight</strong></figcaption>
+                      </figure>
+                      <figure class="clip">
+                        <div class="video-frame"><video controls playsinline preload="none" data-offset="0.174" poster="rollouts/ball-rough-pi05-failure/tactile-right.webp" aria-label="Rough-ball vision-only failure — Right GelSight">
+                          <source src="rollouts/ball-rough-pi05-failure/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
+                        </video></div>
+                        <figcaption><strong>Right GelSight</strong></figcaption>
+                      </figure>
+                    </div>
+                    <p class="rollout-note" id="ball-rough-pi05-tactile-note"><strong>π<sub>0.5</sub> inputs</strong> Wrist RGB, robot state and task instruction.<br><strong>Visualization only</strong> Side and overhead RGB, left and right GelSight.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </aside>
+        </section>
       </section>
       <section id="rollout-usb" aria-labelledby="rollout-usb-title" hidden>
         <h3 class="subhead" id="rollout-usb-title">Insert USB</h3>
