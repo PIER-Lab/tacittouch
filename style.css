@@ -88,7 +88,7 @@ h2 {
 .band { background: var(--band); }
 .overview-story {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
   align-items: center;
   gap: clamp(24px, 4vw, 64px);
 }
@@ -96,9 +96,10 @@ h2 {
 .section-analysis { max-width: 76ch; margin-top: clamp(17px, 2.5vw, 30px); color: var(--subtle); }
 .section-analysis p + p { margin-top: .75em; }
 .authors { max-width: 970px; color: var(--subtle); }
-.authors p:first-child { color: var(--ink); font-weight: 550; }
+.author-list { color: var(--ink); font-weight: 550; }
+.author-list > span { white-space: nowrap; }
 .authors p + p { margin-top: 4px; }
-.authors p span { margin-left: 1em; }
+.author-affiliations > span { margin-left: 1em; }
 .authors sup { color: var(--teal); }
 .author-notes { font-size: .88rem; }
 .metrics {
