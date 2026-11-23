@@ -164,8 +164,8 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
   border-radius: var(--radius);
   background: var(--paper);
 }
-.ball-rollout--success { --result-color: #1c6e46; --result-border: #36915e; }
-.ball-rollout--failure { --result-color: #992f36; --result-border: #c55359; }
+.ball-rollout--success { --result-color: #1c6e46; }
+.ball-rollout--failure { --result-color: #992f36; }
 .ball-rollout-title {
   display: flex;
   align-items: baseline;
@@ -180,7 +180,6 @@ h3 { font-size: clamp(1.38rem, 3vw, 2rem); line-height: 1.12; font-weight: 660; 
 .ball-rollout-title sub { line-height: 0; }
 .ball-result { color: var(--result-color); }
 .ball-rollout .rollout-views { grid-template-columns: minmax(0, 1fr); }
-.ball-rollout .video-frame { border: 2px solid var(--result-border); }
 .rollout-comparison {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(112px, 190px);
   gap: 10px 20px; align-items: center; margin-top: 20px; padding: 12px 16px;
