@@ -1,29 +1,42 @@
-const videos = [...document.querySelectorAll('video')];
 const reel = document.querySelector('#hero-video');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let reelVisible = false;
+const visibleFraction = 0.35;
+const observedPlayers = new Map();
 
-function updateReelPlayback() {
-  if (reelVisible && !reducedMotion.matches && !navigator.connection?.saveData) {
-    reel.play().catch(() => {});
-  } else {
+function autoplayAllowed() {
+  return !reducedMotion.matches && !navigator.connection?.saveData;
+}
+
+function updateViewportPlayback() {
+  const foreground = !document.hidden && !document.querySelector('dialog[open]');
+  const autoplay = autoplayAllowed();
+  for (const player of observedPlayers.values()) {
+    player.update(foreground && player.visible, autoplay);
+  }
+}
+
+const viewportObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    observedPlayers.get(entry.target).visible = entry.intersectionRatio >= visibleFraction;
+  }
+  updateViewportPlayback();
+}, { threshold: visibleFraction });
+
+function observePlayback(target, update) {
+  observedPlayers.set(target, { visible: false, update });
+  viewportObserver.observe(target);
+}
+
+observePlayback(reel, (visible, autoplay) => {
+  if (visible && autoplay) {
+    if (reel.paused) reel.play().catch(() => {});
+  } else if (!reel.paused) {
     reel.pause();
   }
-}
-
-new IntersectionObserver(([entry]) => {
-  reelVisible = entry.intersectionRatio >= 0.2;
-  updateReelPlayback();
-}, { threshold: 0.2 }).observe(reel);
-reducedMotion.addEventListener('change', updateReelPlayback);
-
-let activeRollout;
-
-function pauseOtherVideos(keep = []) {
-  for (const video of videos) {
-    if (!keep.includes(video) && !video.paused) video.pause();
-  }
-}
+});
+document.addEventListener('visibilitychange', updateViewportPlayback);
+reducedMotion.addEventListener('change', updateViewportPlayback);
+navigator.connection?.addEventListener('change', updateViewportPlayback);
 
 function waitForVideo(video, readyState, signal) {
   const ready = () => video.readyState >= readyState && !video.seeking;
@@ -62,10 +75,12 @@ function setUpRollout(element) {
   const timeline = controls.querySelector('input');
   const elapsed = controls.querySelector('.rollout-time');
   const error = element.querySelector('.rollout-error');
-  const player = { element, views, pause };
+  const playbackRate = Number(element.dataset.playbackRate ?? 1);
   let request;
   let duration = 0;
   let scrubbing = false;
+  let mayAutoplay = true;
+  let playingAutomatically = false;
 
   function showTime(seconds) {
     const whole = Math.floor(seconds);
@@ -88,13 +103,18 @@ function setUpRollout(element) {
     request = undefined;
     for (const video of views) video.pause();
     button.textContent = 'Play all views';
-    if (activeRollout === player) activeRollout = undefined;
+    playingAutomatically = false;
   }
 
-  async function play(seconds) {
-    activeRollout?.pause();
-    pauseOtherVideos(views);
-    activeRollout = player;
+  function finish() {
+    mayAutoplay = false;
+    pause();
+    seekTo(duration);
+  }
+
+  async function play(seconds, automatic = false) {
+    if (request) pause();
+    playingAutomatically = automatic;
     const pending = new AbortController();
     request = pending;
     button.textContent = 'Cancel loading';
@@ -113,27 +133,32 @@ function setUpRollout(element) {
       seekTo(seconds >= duration - 0.05 ? 0 : seconds);
       await Promise.all(views.map(video => waitForVideo(video, 3, pending.signal)));
       if (request !== pending) return;
+      for (const video of views) video.playbackRate = playbackRate;
       await Promise.all(views.map(video => video.play()));
       if (request === pending) button.textContent = 'Pause all views';
     } catch {
       if (request !== pending) return;
+      mayAutoplay = false;
       pause();
       error.textContent = 'Could not load all views. Try playing again.';
       error.hidden = false;
     }
   }
 
-  const toggle = () => request ? pause() : play(Number(timeline.value));
+  function toggle() {
+    mayAutoplay = false;
+    if (request) pause();
+    else play(Number(timeline.value));
+  }
+
   button.addEventListener('click', toggle);
   for (const video of views) {
     video.controls = false;
     video.muted = true;
+    video.defaultPlaybackRate = playbackRate;
     video.addEventListener('click', toggle);
     video.addEventListener('ended', () => {
-      if (request && duration > 0) {
-        pause();
-        seekTo(duration);
-      }
+      if (request && duration > 0) finish();
     });
   }
   controls.hidden = false;
@@ -143,6 +168,7 @@ function setUpRollout(element) {
     showTime(Number(timeline.value));
   });
   timeline.addEventListener('change', () => {
+    mayAutoplay = false;
     scrubbing = false;
     const time = Number(timeline.value);
     if (request && time < duration - 0.05) play(time);
@@ -156,8 +182,7 @@ function setUpRollout(element) {
     if (!request || leader.paused || leader.seeking || scrubbing) return;
     const time = Math.max(0, leader.currentTime - offsets[0]);
     if (time >= duration - 0.03) {
-      pause();
-      seekTo(duration);
+      finish();
       return;
     }
     timeline.value = time;
@@ -167,17 +192,41 @@ function setUpRollout(element) {
       if (!video.seeking && Math.abs(video.currentTime - target) > 0.2) video.currentTime = target;
     });
   });
+
+  observePlayback(element.querySelector('.rollout-views'), (visible, autoplay) => {
+    if (request && (!visible || (!autoplay && playingAutomatically))) pause();
+    else if (visible && autoplay && mayAutoplay && !request) play(Number(timeline.value), true);
+  });
+  return pause;
 }
 
-for (const element of document.querySelectorAll('.rollout-player')) setUpRollout(element);
+const pauseRollout = new Map();
+for (const element of document.querySelectorAll('.rollout-player')) {
+  pauseRollout.set(element, setUpRollout(element));
+}
 
-document.addEventListener('play', event => {
-  const video = event.target;
-  if (!(video instanceof HTMLVideoElement) || video === reel || video.paused) return;
-  if (activeRollout?.views.includes(video)) return;
-  activeRollout?.pause();
-  pauseOtherVideos([video]);
-}, true);
+for (const video of document.querySelectorAll('.sim-pair video, .contact-stage video')) {
+  let mayAutoplay = true;
+  let playingAutomatically = false;
+  let pausedByViewport = false;
+  video.addEventListener('pause', () => {
+    if (!pausedByViewport) mayAutoplay = false;
+    pausedByViewport = false;
+    playingAutomatically = false;
+  });
+  observePlayback(video, (visible, autoplay) => {
+    if (!video.paused && (!visible || (!autoplay && playingAutomatically))) {
+      pausedByViewport = true;
+      video.pause();
+    } else if (visible && autoplay && mayAutoplay && video.paused && !video.ended) {
+      playingAutomatically = true;
+      video.muted = true;
+      video.play().catch(error => {
+        if (error.name !== 'AbortError') mayAutoplay = false;
+      });
+    }
+  });
+}
 
 const rolloutButtons = document.querySelectorAll('[data-rollout-choice]');
 for (const choice of rolloutButtons) {
@@ -188,8 +237,7 @@ for (const choice of rolloutButtons) {
       button.setAttribute('aria-pressed', String(selected));
       panel.hidden = !selected;
       if (panel.hidden) {
-        if (activeRollout && panel.contains(activeRollout.element)) activeRollout.pause();
-        for (const video of panel.querySelectorAll('video')) video.pause();
+        for (const player of panel.querySelectorAll('.rollout-player')) pauseRollout.get(player)();
       }
     }
   });
@@ -272,6 +320,7 @@ for (const anchor of document.querySelectorAll('[data-figure]')) {
     enlarged.src = anchor.href;
     enlarged.alt = anchor.querySelector('img').alt;
     figures.showModal();
+    updateViewportPlayback();
   });
 }
 
@@ -289,9 +338,12 @@ for (const button of document.querySelectorAll('[data-sensors]')) {
     sensorDescription.replaceChildren(...[...inputNotes].map(note => note.cloneNode(true)));
     sensorVideo.poster = file + '.webp?v=source-ratios';
     sensorVideo.src = file + '.mp4?v=source-ratios';
-    activeRollout?.pause();
-    pauseOtherVideos();
     sensors.showModal();
+    updateViewportPlayback();
+    if (autoplayAllowed()) {
+      sensorVideo.muted = true;
+      sensorVideo.play().catch(() => {});
+    }
   });
 }
 sensors.addEventListener('close', () => {
@@ -300,6 +352,7 @@ sensors.addEventListener('close', () => {
   sensorVideo.load();
 });
 for (const dialog of [figures, sensors]) {
+  dialog.addEventListener('close', updateViewportPlayback);
   dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     if (event.target === dialog) dialog.close();
