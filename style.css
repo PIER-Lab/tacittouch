@@ -103,8 +103,10 @@ h2 {
 .authors sup { color: var(--teal); }
 .author-notes { font-size: .88rem; }
 .project-resources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
-.project-resources .button { padding-inline: 14px; cursor: default; }
+.project-resources .button { padding-inline: 14px; }
 .project-resources .button:not(.primary) { background: white; border-color: var(--rule); color: var(--subtle); }
+.project-resources a.button:hover { border-color: var(--teal); color: var(--teal); }
+.project-resources .button:disabled { cursor: default; }
 .project-resources .primary:disabled { background: var(--mint); }
 .metrics {
   display: grid; grid-template-columns: 1.1fr 1fr 1fr; align-items: center;
