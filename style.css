@@ -102,6 +102,10 @@ h2 {
 .author-affiliations > span { margin-left: 1em; }
 .authors sup { color: var(--teal); }
 .author-notes { font-size: .88rem; }
+.project-resources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+.project-resources .button { padding-inline: 14px; cursor: default; }
+.project-resources .button:not(.primary) { background: white; border-color: var(--rule); color: var(--subtle); }
+.project-resources .primary:disabled { background: var(--mint); }
 .metrics {
   display: grid; grid-template-columns: 1.1fr 1fr 1fr; align-items: center;
   margin-top: clamp(30px, 4.5vw, 60px); border-block: 1px solid var(--rule); padding-block: 23px;
@@ -377,6 +381,7 @@ dialog img { max-height: 72svh; object-fit: contain; }
   .contact-stage figcaption span { font-size: .92rem; }
 }
 @media (max-width: 410px) {
+  .project-resources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metrics strong { font-size: 2.15rem; }
 }
 @media (prefers-reduced-motion: reduce) {
