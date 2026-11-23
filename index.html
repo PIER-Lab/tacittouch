@@ -8,8 +8,8 @@
   <meta property="og:description" content="Distilling Touch into Vision-Only Policies for Contact-Rich Manipulation">
   <meta property="og:image" content="https://pier-lab.github.io/tacittouch/hero-poster.webp?v=real-world">
   <title>TacitTouch | Distilling Touch into Vision-Only Policies</title>
-  <link rel="stylesheet" href="style.css?v=task-comparisons">
-  <script src="page.js?v=task-comparisons" defer></script>
+  <link rel="stylesheet" href="style.css?v=paper-categories">
+  <script src="page.js?v=paper-categories" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#content">Skip to content</a>
@@ -47,7 +47,7 @@
           <p>TacImag predicts tactile observations during inference and passes them to its policy. TacitTouch transfers the teacher’s guidance during training. The deployed student then acts from camera images, robot state and the task instruction.</p>
         </div>
         <div class="authors">
-          <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
+          <p>Chen Yang<sup>1,*</sup>, Linhao Wang<sup>1,*</sup>, Linzhe Shi<sup>2</sup>, Guohui Zhang<sup>1</sup>, Changjie&nbsp;Wu<sup>2</sup>, Hang Zhang<sup>2</sup>, Haoyu Li<sup>1</sup>, Mu Xu<sup>2</sup>, Jiansheng Fan<sup>1</sup>, Chen Wang<sup>1,†</sup></p>
           <p><sup>1</sup> Tsinghua University <span><sup>2</sup> Amap, Alibaba Group</span></p>
           <p class="author-notes">* Equal contribution. † Corresponding author.</p>
         </div>
@@ -79,7 +79,7 @@
       </div>
 
       <section id="rollout-ball" aria-labelledby="rollout-ball-title">
-        <h3 class="subhead" id="rollout-ball-title">Blue-bowl rollout</h3>
+        <h3 class="subhead" id="rollout-ball-title">Smooth-ball rollout</h3>
         <div class="rollout-player">
           <div class="rollout-controls" hidden>
             <button class="rollout-play" type="button">Play all views</button>
@@ -89,7 +89,7 @@
           <p class="rollout-error" role="status" hidden></p>
           <div class="rollout-views">
             <figure class="clip">
-              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.100" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Blue-bowl rollout — Side view">
+              <div class="video-frame"><video controls playsinline preload="none" data-offset="0.100" poster="rollouts/ball-blue-bowl/side.webp" aria-label="Smooth-ball rollout — Side view">
                 <source src="rollouts/ball-blue-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
               </video></div>
               <figcaption><strong>Side view</strong></figcaption>
@@ -97,13 +97,13 @@
             <div class="rollout-details">
               <div class="rollout-pair">
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Blue-bowl rollout — Overhead view">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.070" poster="rollouts/ball-blue-bowl/overhead.webp" aria-label="Smooth-ball rollout — Overhead view">
                     <source src="rollouts/ball-blue-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Overhead view</strong></figcaption>
                 </figure>
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Blue-bowl rollout — Wrist view">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-blue-bowl/wrist.webp" aria-label="Smooth-ball rollout — Wrist view">
                     <source src="rollouts/ball-blue-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Wrist view</strong></figcaption>
@@ -111,13 +111,13 @@
               </div>
               <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-blue-bowl-tactile-note">
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.137" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Blue-bowl rollout — Left GelSight">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.137" poster="rollouts/ball-blue-bowl/tactile-left.webp" aria-label="Smooth-ball rollout — Left GelSight">
                     <source src="rollouts/ball-blue-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Left GelSight</strong></figcaption>
                 </figure>
                 <figure class="clip">
-                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.123" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Blue-bowl rollout — Right GelSight">
+                  <div class="video-frame"><video controls playsinline preload="none" data-offset="0.123" poster="rollouts/ball-blue-bowl/tactile-right.webp" aria-label="Smooth-ball rollout — Right GelSight">
                     <source src="rollouts/ball-blue-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
                   </video></div>
                   <figcaption><strong>Right GelSight</strong></figcaption>
@@ -128,7 +128,7 @@
           </div>
         </div>
         <section class="secondary-rollout" aria-labelledby="rollout-pink-title">
-          <h3 class="subhead" id="rollout-pink-title">Pink-bowl rollout</h3>
+          <h3 class="subhead" id="rollout-pink-title">Rough-ball rollout</h3>
           <div class="rollout-player">
             <div class="rollout-controls" hidden>
               <button class="rollout-play" type="button">Play all views</button>
@@ -138,7 +138,7 @@
             <p class="rollout-error" role="status" hidden></p>
             <div class="rollout-views">
               <figure class="clip">
-                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.060" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Pink-bowl rollout — Side view">
+                <div class="video-frame"><video controls playsinline preload="none" data-offset="0.060" poster="rollouts/ball-pink-bowl/side.webp" aria-label="Rough-ball rollout — Side view">
                   <source src="rollouts/ball-pink-bowl/side.mp4?v=trimmed-3s" type="video/mp4">
                 </video></div>
                 <figcaption><strong>Side view</strong></figcaption>
@@ -146,13 +146,13 @@
               <div class="rollout-details">
                 <div class="rollout-pair">
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.066" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Pink-bowl rollout — Overhead view">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.066" poster="rollouts/ball-pink-bowl/overhead.webp" aria-label="Rough-ball rollout — Overhead view">
                       <source src="rollouts/ball-pink-bowl/overhead.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
                     <figcaption><strong>Overhead view</strong></figcaption>
                   </figure>
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Pink-bowl rollout — Wrist view">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.000" poster="rollouts/ball-pink-bowl/wrist.webp" aria-label="Rough-ball rollout — Wrist view">
                       <source src="rollouts/ball-pink-bowl/wrist.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
                     <figcaption><strong>Wrist view</strong></figcaption>
@@ -160,13 +160,13 @@
                 </div>
                 <div class="rollout-pair" role="group" aria-label="Fingertip recordings" aria-describedby="ball-pink-bowl-tactile-note">
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.193" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Pink-bowl rollout — Left GelSight">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.193" poster="rollouts/ball-pink-bowl/tactile-left.webp" aria-label="Rough-ball rollout — Left GelSight">
                       <source src="rollouts/ball-pink-bowl/tactile-left.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
                     <figcaption><strong>Left GelSight</strong></figcaption>
                   </figure>
                   <figure class="clip">
-                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.164" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Pink-bowl rollout — Right GelSight">
+                    <div class="video-frame"><video controls playsinline preload="none" data-offset="0.164" poster="rollouts/ball-pink-bowl/tactile-right.webp" aria-label="Rough-ball rollout — Right GelSight">
                       <source src="rollouts/ball-pink-bowl/tactile-right.mp4?v=trimmed-3s" type="video/mp4">
                     </video></div>
                     <figcaption><strong>Right GelSight</strong></figcaption>
@@ -364,16 +364,22 @@
             <table class="score-table">
               <caption>Real-world task success (%)</caption>
               <thead>
-                <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+                <tr>
+                  <th scope="col">Task</th>
+                  <th scope="col" data-category="Vision-only">π<sub>0.5</sub></th>
+                  <th scope="col" data-category="Vision + Tac.">Simple<wbr>Touch</th>
+                  <th scope="col" data-category="Train-time Tac.">TacImag</th>
+                  <th scope="col" class="score-tacit" data-category="Train-time Tac.">Tacit<wbr>Touch</th>
+                </tr>
               </thead>
               <tbody>
-                <tr><th scope="row">Ball Sorting</th><td>75</td><td>55</td><td>100</td><td class="score-tacit">80</td></tr>
-                <tr><th scope="row">Insert USB</th><td>5</td><td>15</td><td>25</td><td class="score-tacit">25</td></tr>
-                <tr><th scope="row">Wipe Board</th><td>65</td><td>75</td><td>90</td><td class="score-tacit">85</td></tr>
-                <tr><th scope="row">Chip Moving</th><td>55</td><td>75</td><td>90</td><td class="score-tacit">100</td></tr>
+                <tr><th scope="row">Ball Sorting</th><td>75</td><td>100</td><td>55</td><td class="score-tacit">80</td></tr>
+                <tr><th scope="row">Insert USB</th><td>5</td><td>25</td><td>15</td><td class="score-tacit">25</td></tr>
+                <tr><th scope="row">Wipe Board</th><td>65</td><td>90</td><td>75</td><td class="score-tacit">85</td></tr>
+                <tr><th scope="row">Chip Moving</th><td>55</td><td>90</td><td>75</td><td class="score-tacit">100</td></tr>
               </tbody>
               <tfoot>
-                <tr><th scope="row">Mean</th><td>50.00</td><td>55.00</td><td>76.25</td><td class="score-tacit">72.50</td></tr>
+                <tr><th scope="row">Mean</th><td>50.00</td><td>76.25</td><td>55.00</td><td class="score-tacit">72.50</td></tr>
               </tfoot>
             </table>
           </div>
@@ -499,16 +505,22 @@
           <table class="score-table">
             <caption>UniVTAC task success (%)</caption>
             <thead>
-              <tr><th scope="col">Task</th><th scope="col">π<sub>0.5</sub></th><th scope="col">TacImag</th><th scope="col">Simple<wbr>Touch</th><th scope="col" class="score-tacit">Tacit<wbr>Touch</th></tr>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col" data-category="Vision-only">π<sub>0.5</sub></th>
+                <th scope="col" data-category="Vision + Tac.">Simple<wbr>Touch</th>
+                <th scope="col" data-category="Train-time Tac.">TacImag</th>
+                <th scope="col" class="score-tacit" data-category="Train-time Tac.">Tacit<wbr>Touch</th>
+              </tr>
             </thead>
             <tbody>
               <tr><th scope="row">Lift Bottle</th><td>92</td><td>100</td><td>100</td><td class="score-tacit">96</td></tr>
-              <tr><th scope="row">Lift Can</th><td>59</td><td>63</td><td>68</td><td class="score-tacit">85</td></tr>
-              <tr><th scope="row">Put Bottle</th><td>31</td><td>45</td><td>50</td><td class="score-tacit">37</td></tr>
-              <tr><th scope="row">Insert Tube</th><td>64</td><td>87</td><td>100</td><td class="score-tacit">92</td></tr>
+              <tr><th scope="row">Lift Can</th><td>59</td><td>68</td><td>63</td><td class="score-tacit">85</td></tr>
+              <tr><th scope="row">Put Bottle</th><td>31</td><td>50</td><td>45</td><td class="score-tacit">37</td></tr>
+              <tr><th scope="row">Insert Tube</th><td>64</td><td>100</td><td>87</td><td class="score-tacit">92</td></tr>
             </tbody>
             <tfoot>
-              <tr><th scope="row">Mean</th><td>61.5</td><td>73.8</td><td>79.5</td><td class="score-tacit">77.5</td></tr>
+              <tr><th scope="row">Mean</th><td>61.5</td><td>79.5</td><td>73.8</td><td class="score-tacit">77.5</td></tr>
             </tfoot>
           </table>
         </div>
@@ -569,6 +581,21 @@
     </div>
   </section>
 
+  <section class="band" id="robustness" aria-labelledby="robustness-title">
+    <div class="wrap section">
+      <div class="section-intro">
+        <h2 id="robustness-title">Visual robustness</h2>
+        <p>The brightness test halves the camera RGB values before preprocessing. A second test shifts the simulated camera viewpoints. With dimmed input on the real robot, TacitTouch averaged 66.25% success compared with 46.25% for TacImag. Under shifted viewpoints in UniVTAC, their means were 58.5% and 43.3%, respectively.</p>
+      </div>
+      <figure class="paper-figure">
+        <a href="robustness.webp" data-figure aria-label="Enlarge Matched examples under two visual perturbations">
+          <img src="robustness.webp" alt="Matched TacImag and TacitTouch trajectories under dimmed camera input and shifted viewpoints" loading="lazy">
+        </a>
+        <figcaption>Matched Lift Bottle examples under dimmed inputs and Insert Tube examples under shifted viewpoints. The brightness change is applied to policy inputs. Displayed frames retain their recorded brightness.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="wrap section" id="method" aria-labelledby="method-title">
     <div class="section-intro">
       <h2 id="method-title">Method and hardware</h2>
@@ -591,21 +618,6 @@
     <div class="section-analysis">
       <p>Removing feature supervision while retaining action distillation and demonstrated-action supervision lowered mean success from 77.5% to 65.0% across the four main simulation tasks. Matching the teacher’s intermediate representations contributed beyond matching its action updates in this ablation.</p>
       <p>In the timing benchmark, the deployed policy averaged 0.337 seconds per call. Its mean latency was 25.8% lower than TacImag’s.</p>
-    </div>
-  </section>
-
-  <section class="band" id="robustness" aria-labelledby="robustness-title">
-    <div class="wrap section">
-      <div class="section-intro">
-        <h2 id="robustness-title">Visual robustness</h2>
-        <p>The brightness test halves the camera RGB values before preprocessing. A second test shifts the simulated camera viewpoints. With dimmed input on the real robot, TacitTouch averaged 66.25% success compared with 46.25% for TacImag. Under shifted viewpoints in UniVTAC, their means were 58.5% and 43.3%, respectively.</p>
-      </div>
-      <figure class="paper-figure">
-        <a href="robustness.webp" data-figure aria-label="Enlarge Matched examples under two visual perturbations">
-          <img src="robustness.webp" alt="Matched TacImag and TacitTouch trajectories under dimmed camera input and shifted viewpoints" loading="lazy">
-        </a>
-        <figcaption>Matched Lift Bottle examples under dimmed inputs and Insert Tube examples under shifted viewpoints. The brightness change is applied to policy inputs. Displayed frames retain their recorded brightness.</figcaption>
-      </figure>
     </div>
   </section>
 

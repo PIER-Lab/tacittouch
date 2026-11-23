@@ -210,9 +210,14 @@ for (const card of document.querySelectorAll('.scorecard')) {
 
   const legend = document.createElement('ul');
   legend.className = 'score-legend';
-  for (const header of [...table.tHead.rows[0].cells].slice(1)) {
+  const methods = [...table.tHead.rows[0].cells].slice(1);
+  for (const header of methods) {
     const entry = document.createElement('li');
     entry.append(...[...header.childNodes].map(node => node.cloneNode(true)));
+    const category = document.createElement('small');
+    category.className = 'score-category';
+    category.textContent = header.dataset.category;
+    entry.append(category);
     legend.append(entry);
   }
 
@@ -239,7 +244,7 @@ for (const card of document.querySelectorAll('.scorecard')) {
       const bar = document.createElement('div');
       bar.className = 'score-bar';
       bar.style.setProperty('--rate', rate + '%');
-      bar.title = task.textContent + ' · ' + legend.children[index].textContent + ' · ' + rate + '%';
+      bar.title = task.textContent + ' · ' + methods[index].textContent + ' · ' + rate + '%';
       const value = document.createElement('span');
       value.textContent = rate;
       bar.append(value);
