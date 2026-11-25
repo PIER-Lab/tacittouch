@@ -7,10 +7,29 @@ function autoplayAllowed() {
   return !reducedMotion.matches && !navigator.connection?.saveData;
 }
 
+function preloadVideo(video, preload) {
+  video.preload = preload;
+  if (video.readyState === HTMLMediaElement.HAVE_NOTHING &&
+      video.networkState !== HTMLMediaElement.NETWORK_LOADING) {
+    video.load();
+  }
+}
+
 function updateViewportPlayback() {
   const foreground = !document.hidden && !document.querySelector('dialog[open]');
   const autoplay = autoplayAllowed();
-  for (const player of observedPlayers.values()) {
+  for (const [target, player] of observedPlayers) {
+    if (foreground && autoplay && player.nearby) {
+      for (const video of player.videos) {
+        if (video.preload !== 'none') continue;
+        preloadVideo(video, 'metadata');
+        // Prepare the actual starting frame for a synchronized camera view.
+        const offset = Number(video.dataset.offset ?? 0);
+        if (offset > 0) video.currentTime = offset;
+      }
+      player.nearby = false;
+      preloadObserver.unobserve(target);
+    }
     player.update(foreground && player.visible, autoplay);
   }
 }
@@ -22,9 +41,18 @@ const viewportObserver = new IntersectionObserver(entries => {
   updateViewportPlayback();
 }, { threshold: visibleFraction });
 
-function observePlayback(target, update) {
-  observedPlayers.set(target, { visible: false, update });
+// Buffer nearby previews without starting them before they enter the viewport.
+const preloadObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    observedPlayers.get(entry.target).nearby = entry.isIntersecting;
+  }
+  updateViewportPlayback();
+}, { rootMargin: '700px 0px' });
+
+function observePlayback(target, update, videos = []) {
+  observedPlayers.set(target, { visible: false, nearby: false, update, videos });
   viewportObserver.observe(target);
+  if (videos.length) preloadObserver.observe(target);
 }
 
 observePlayback(reel, (visible, autoplay) => {
@@ -121,10 +149,7 @@ function setUpRollout(element) {
     error.hidden = true;
 
     try {
-      for (const video of views) {
-        video.preload = 'auto';
-        if (video.readyState === 0 && video.networkState !== 2) video.load();
-      }
+      for (const video of views) preloadVideo(video, 'auto');
       await Promise.all(views.map(video => waitForVideo(video, 1, pending.signal)));
       if (request !== pending) return;
       duration = Math.min(...views.map((video, i) => video.duration - offsets[i]));
@@ -196,7 +221,7 @@ function setUpRollout(element) {
   observePlayback(element.querySelector('.rollout-views'), (visible, autoplay) => {
     if (request && (!visible || (!autoplay && playingAutomatically))) pause();
     else if (visible && autoplay && mayAutoplay && !request) play(Number(timeline.value), true);
-  });
+  }, views);
   return pause;
 }
 
@@ -225,7 +250,7 @@ for (const video of document.querySelectorAll('.sim-pair video, .contact-stage v
         if (error.name !== 'AbortError') mayAutoplay = false;
       });
     }
-  });
+  }, [video]);
 }
 
 const rolloutButtons = document.querySelectorAll('[data-rollout-choice]');
